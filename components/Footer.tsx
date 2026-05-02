@@ -223,7 +223,7 @@ export default function Footer({ className = "" }: { className?: string }) {
               className="text-sm"
               style={{ color: 'rgba(255,255,255,0.4)' }}
             >
-              © 2025 Bikore. All rights reserved.
+              © 2026 Bikore. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a 
