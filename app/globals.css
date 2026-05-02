@@ -20,6 +20,10 @@ html {
   scroll-behavior: smooth;
 }
 
+[id] {
+  scroll-margin-top: 80px;
+}
+
 body {
   background: var(--color-bg-darkest);
   font-family: 'Inter', sans-serif;

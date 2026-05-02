@@ -44,21 +44,23 @@ export default function Navbar() {
                 {index < navLinks.length - 1 && <span className="text-[#1A1A1A] mx-2">·</span>}
               </span>
             ))}
-            <motion.button
+            <motion.a
+              href="#download"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="bg-[#1A4D2E] text-white rounded-full"
+              className="bg-[#1A4D2E] text-white rounded-full inline-block"
               style={{ 
                 borderRadius: '999px', 
                 padding: '10px 24px', 
                 fontWeight: 600,
                 fontFamily: 'Inter, sans-serif',
                 boxShadow: 'none',
-                border: 'none'
+                border: 'none',
+                textDecoration: 'none'
               }}
             >
               Get the app
-            </motion.button>
+            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,20 +100,23 @@ export default function Navbar() {
                     {link}
                   </a>
                 ))}
-                <motion.button
+                <motion.a
+                  href="#download"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full bg-[#1A4D2E] text-white rounded-full mt-4"
+                  className="w-full bg-[#1A4D2E] text-white rounded-full mt-4 inline-block"
                   style={{ 
                     borderRadius: '999px', 
                     fontWeight: 600,
                     fontFamily: 'Inter, sans-serif',
                     boxShadow: 'none',
-                    border: 'none'
+                    border: 'none',
+                    textDecoration: 'none'
                   }}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Get the app
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           )}

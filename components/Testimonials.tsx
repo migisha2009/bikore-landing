@@ -49,7 +49,7 @@ export default function Testimonials({ className = "" }: { className?: string })
   ];
 
   return (
-    <section id="testimonials" className={`py-20 bg-section-testimonials ${className}`} ref={ref}>
+    <section id="stories" className={`py-20 bg-section-testimonials ${className}`} ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div

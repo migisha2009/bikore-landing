@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Screens from "@/components/Screens";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import Stats from "@/components/Stats";
@@ -72,6 +73,8 @@ export default function Home() {
       {/* Main Sections */}
       <Navbar />
       <Hero />
+      
+      <Screens className="border-t border-[rgba(255,255,255,0.08)]" />
       
       <Features className="border-t border-[rgba(255,255,255,0.08)]" />
       
