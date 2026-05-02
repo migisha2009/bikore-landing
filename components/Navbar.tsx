@@ -15,7 +15,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-cream border-b border-[rgba(0,0,0,0.08)]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FFFFFF] border-b border-[rgba(0,0,0,0.08)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -24,7 +24,7 @@ export default function Navbar() {
               <div className="w-8 h-8 bg-dark-green rounded flex items-center justify-center">
                 <span className="text-white text-sm">🍃</span>
               </div>
-              <h1 className="text-[22px] font-serif text-dark-green" style={{ fontWeight: 800 }}>
+              <h1 className="text-[22px] font-serif text-[#1A3D2B]" style={{ fontWeight: 800 }}>
                 Bikore
               </h1>
             </div>
@@ -36,18 +36,18 @@ export default function Navbar() {
               <span key={link}>
                 <a
                   href={`#${link.toLowerCase().replace(" ", "-")}`}
-                  className="text-[#2A2A2A] text-[15px] hover:text-dark-green transition-colors duration-200"
+                  className="text-[#1A1A1A] text-[15px] hover:text-dark-green transition-colors duration-200"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
                   {link}
                 </a>
-                {index < navLinks.length - 1 && <span className="text-[#2A2A2A] mx-2">·</span>}
+                {index < navLinks.length - 1 && <span className="text-[#1A1A1A] mx-2">·</span>}
               </span>
             ))}
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="bg-green-bright text-white rounded-full"
+              className="bg-[#1A4D2E] text-white rounded-full"
               style={{ 
                 borderRadius: '999px', 
                 padding: '10px 24px', 
@@ -91,7 +91,7 @@ export default function Navbar() {
                   <a
                     key={link}
                     href={`#${link.toLowerCase().replace(" ", "-")}`}
-                    className="block py-2 text-[#2A2A2A] hover:text-dark-green transition-colors duration-200"
+                    className="block py-2 text-[#1A1A1A] hover:text-dark-green transition-colors duration-200"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -101,7 +101,7 @@ export default function Navbar() {
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full bg-green-bright text-white rounded-full mt-4"
+                  className="w-full bg-[#1A4D2E] text-white rounded-full mt-4"
                   style={{ 
                     borderRadius: '999px', 
                     fontWeight: 600,
