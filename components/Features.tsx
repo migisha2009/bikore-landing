@@ -46,7 +46,7 @@ export default function Features() {
   ];
 
   return (
-    <section id="features" className="py-20 bg-cream" ref={ref}>
+    <section id="features" className="py-20 bg-section-features" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -55,12 +55,23 @@ export default function Features() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <div className="text-primary font-sans text-sm font-semibold tracking-widest uppercase mb-4">
-            Features
+          <div className="inline-flex items-center px-4 py-1 rounded-full mb-4"
+               style={{
+                 background: 'rgba(91,173,91,0.2)',
+                 border: '1px solid rgba(91,173,91,0.3)'
+               }}>
+            <span className="font-sans text-xs font-semibold tracking-widest uppercase"
+                  style={{ color: '#B8E08D' }}>
+              FEATURES
+            </span>
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-primary-dark mb-4">
-            Everything your group needs
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
+            Everything your Ikimina needs
           </h2>
+          <p className="font-sans text-lg max-w-2xl mx-auto"
+             style={{ color: 'rgba(255,255,255,0.6)' }}>
+            Powerful tools designed for modern group savings circles in Rwanda
+          </p>
         </motion.div>
 
         {/* Features Grid */}
@@ -76,18 +87,32 @@ export default function Features() {
                 delay: index * 0.1,
                 ease: "easeOut"
               }}
-              className="bg-white rounded-2xl p-6 border border-transparent hover:border-primary hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
+              className="rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 group"
+              style={{
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.1)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(91,173,91,0.4)';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+              }}
             >
               {/* Icon */}
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4 group-hover:bg-primary-mid transition-colors duration-300">
-                <span className="text-white text-xl">{feature.icon}</span>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300"
+                   style={{ background: 'rgba(91,173,91,0.2)' }}>
+                <span className="text-2xl" style={{ color: '#B8E08D' }}>{feature.icon}</span>
               </div>
               
               {/* Content */}
-              <h3 className="font-serif text-xl font-bold text-primary-dark mb-3">
+              <h3 className="font-sans text-lg font-bold text-white mb-3">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="leading-relaxed text-sm"
+                 style={{ color: 'rgba(255,255,255,0.6)' }}>
                 {feature.description}
               </p>
             </motion.div>

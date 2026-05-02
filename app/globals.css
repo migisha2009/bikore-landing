@@ -3,12 +3,25 @@
 @import "@fontsource/inter";
 @import "@fontsource/playfair-display";
 
+:root {
+  --color-bg-darkest: #0A2416;
+  --color-bg-dark: #0D2B1A;
+  --color-bg-mid: #1A4D2E;
+  --color-bg-light: #2D7A3A;
+  --color-green-bright: #5BAD5B;
+  --color-gold: #F5C518;
+  --color-cream: #F2EFE4;
+  --color-text-primary: #FFFFFF;
+  --color-text-muted: rgba(255,255,255,0.65);
+  --color-text-pale: #B8E08D;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: #0D2B1A;
+  background: var(--color-bg-darkest);
   font-family: 'Inter', sans-serif;
-  color: #FFFFFF;
+  color: var(--color-text-primary);
 }

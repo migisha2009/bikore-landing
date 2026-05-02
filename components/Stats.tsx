@@ -62,7 +62,7 @@ export default function Stats() {
   ];
 
   return (
-    <section className="py-20 bg-cream" ref={ref}>
+    <section className="py-20 bg-section-stats" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 items-center">
           {stats.map((stat, index) => (
@@ -74,21 +74,28 @@ export default function Stats() {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className="text-center"
               >
-                <div className="font-serif text-3xl md:text-5xl lg:text-[48px] font-bold text-primary-dark mb-2">
+                <div className="font-serif text-4xl md:text-5xl lg:text-[56px] font-black text-white mb-2">
                   <AnimatedNumber 
                     value={stat.number} 
                     duration={2000 + index * 200}
                   />
-                  <span className="text-4xl md:text-5xl lg:text-[48px]">{stat.suffix}</span>
+                  <span className="text-4xl md:text-5xl lg:text-[56px]">{stat.suffix}</span>
                 </div>
-                <div className="font-sans text-gray-600 text-sm md:text-base">
+                <div className="font-sans text-base"
+                     style={{ color: '#B8E08D' }}>
                   {stat.label}
                 </div>
               </motion.div>
 
               {/* Vertical Divider - Not for last item */}
               {index < stats.length - 1 && (
-                <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-primary opacity-30" />
+                <div 
+                  className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px"
+                  style={{ 
+                    height: '60px',
+                    background: 'rgba(255,255,255,0.1)'
+                  }} 
+                />
               )}
             </div>
           ))}

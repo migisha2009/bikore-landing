@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-cream py-12">
+    <footer className="bg-section-footer py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -12,51 +12,64 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="flex items-center mb-4">
               <span className="text-2xl mr-2">🍃</span>
-              <h3 className="text-2xl font-serif font-bold text-primary">Bikore</h3>
+              <h3 className="text-2xl font-serif font-bold text-white">Bikore</h3>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed"
+               style={{ color: 'rgba(255,255,255,0.5)' }}>
               Bringing Rwanda's trusted Ikimina tradition to your smartphone. Save together, grow together.
             </p>
           </div>
           
           {/* Product Links */}
           <div>
-            <h4 className="font-sans font-semibold text-primary-dark mb-4">Product</h4>
+            <h4 className="font-sans font-semibold text-white mb-4">Product</h4>
             <ul className="space-y-2">
               <li>
                 <a 
                   href="#features" 
-                  className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                  className="transition-colors duration-200 relative group"
+                  style={{ color: 'rgba(255,255,255,0.55)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
                 >
                   Features
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#how-it-works" 
-                  className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                  className="transition-colors duration-200 relative group"
+                  style={{ color: 'rgba(255,255,255,0.55)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
                 >
                   How It Works
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#download" 
-                  className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                  className="transition-colors duration-200 relative group"
+                  style={{ color: 'rgba(255,255,255,0.55)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
                 >
                   Download
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#" 
-                  className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                  className="transition-colors duration-200 relative group"
+                  style={{ color: 'rgba(255,255,255,0.55)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
                 >
                   Pricing
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
             </ul>
@@ -64,42 +77,54 @@ export default function Footer() {
           
           {/* Company Links */}
           <div>
-            <h4 className="font-sans font-semibold text-primary-dark mb-4">Company</h4>
+            <h4 className="font-sans font-semibold text-white mb-4">Company</h4>
             <ul className="space-y-2">
               <li>
                 <a 
                   href="#" 
-                  className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                  className="transition-colors duration-200 relative group"
+                  style={{ color: 'rgba(255,255,255,0.55)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
                 >
                   About Us
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#" 
-                  className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                  className="transition-colors duration-200 relative group"
+                  style={{ color: 'rgba(255,255,255,0.55)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
                 >
                   Blog
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#" 
-                  className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                  className="transition-colors duration-200 relative group"
+                  style={{ color: 'rgba(255,255,255,0.55)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
                 >
                   Careers
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#" 
-                  className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                  className="transition-colors duration-200 relative group"
+                  style={{ color: 'rgba(255,255,255,0.55)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
                 >
                   Contact
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
             </ul>
@@ -107,13 +132,25 @@ export default function Footer() {
           
           {/* Social Icons */}
           <div>
-            <h4 className="font-sans font-semibold text-primary-dark mb-4">Social</h4>
+            <h4 className="font-sans font-semibold text-white mb-4">Social</h4>
             <div className="flex space-x-4">
               <motion.a
                 href="#"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-200"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200"
+                style={{ 
+                  background: 'rgba(255,255,255,0.4)',
+                  color: 'white'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#5BAD5B';
+                  e.currentTarget.style.color = 'white';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.4)';
+                  e.currentTarget.style.color = 'white';
+                }}
                 aria-label="Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -125,7 +162,19 @@ export default function Footer() {
                 href="#"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-200"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200"
+                style={{ 
+                  background: 'rgba(255,255,255,0.4)',
+                  color: 'white'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#5BAD5B';
+                  e.currentTarget.style.color = 'white';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.4)';
+                  e.currentTarget.style.color = 'white';
+                }}
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -139,7 +188,19 @@ export default function Footer() {
                 href="#"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-200"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200"
+                style={{ 
+                  background: 'rgba(255,255,255,0.4)',
+                  color: 'white'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#5BAD5B';
+                  e.currentTarget.style.color = 'white';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255,255,255,0.4)';
+                  e.currentTarget.style.color = 'white';
+                }}
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -153,25 +214,37 @@ export default function Footer() {
         </div>
         
         {/* Bottom Bar */}
-        <div className="border-t border-primary/20 pt-8">
+        <div 
+          className="pt-8"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+        >
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600 text-sm">
+            <p 
+              className="text-sm"
+              style={{ color: 'rgba(255,255,255,0.4)' }}
+            >
               © 2025 Bikore. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a 
                 href="#" 
-                className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                className="transition-colors duration-200 relative group"
+                style={{ color: 'rgba(255,255,255,0.4)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
               >
                 Privacy Policy
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
               </a>
               <a 
                 href="#" 
-                className="text-gray-600 hover:text-primary transition-colors duration-200 relative group"
+                className="transition-colors duration-200 relative group"
+                style={{ color: 'rgba(255,255,255,0.4)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
               >
                 Terms of Service
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
               </a>
             </div>
           </div>

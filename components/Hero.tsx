@@ -54,7 +54,8 @@ export default function Hero() {
       id="home" 
       className="min-h-screen relative overflow-hidden"
       style={{
-        background: 'radial-gradient(circle at center, #1E5C35 0%, #0D2B1A 100%)',
+        background: '#0D2B1A',
+        backgroundImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(45,122,58,0.25) 0%, transparent 70%)',
         minHeight: '100vh',
         padding: '60px 80px'
       }}

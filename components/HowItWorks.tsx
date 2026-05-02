@@ -34,7 +34,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-primary-dark" ref={ref}>
+    <section id="how-it-works" className="py-20 bg-section-how" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
@@ -60,9 +60,9 @@ export default function HowItWorks() {
             >
               <motion.path
                 d="M 0 0.5 L 800 0.5"
-                stroke="#F5C842"
+                stroke="#F5C518"
                 strokeWidth="2"
-                strokeDasharray="8,4"
+                strokeDasharray="6,4"
                 fill="none"
                 initial={{ pathLength: 0 }}
                 animate={isInView ? { pathLength: 1 } : {}}
@@ -86,20 +86,27 @@ export default function HowItWorks() {
                   className="text-center relative"
                 >
                   {/* Faded Number Background */}
-                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-[120px] font-bold text-primary opacity-15 leading-none">
+                  <div 
+                    className="absolute -top-8 left-1/2 -translate-x-1/2 text-[100px] font-serif leading-none"
+                    style={{ color: 'rgba(255,255,255,0.04)' }}
+                  >
                     {step.number}
                   </div>
                   
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
-                    <span className="text-2xl">{step.icon}</span>
+                  <div 
+                    className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10"
+                    style={{ background: '#F5C518' }}
+                  >
+                    <span className="text-2xl" style={{ color: '#0D2B1A' }}>{step.icon}</span>
                   </div>
                   
                   {/* Content */}
-                  <h3 className="font-serif text-xl font-bold text-white mb-2">
+                  <h3 className="font-serif text-2xl font-bold text-white mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-primary-pale">
+                  <p className="font-sans text-base"
+                     style={{ color: 'rgba(255,255,255,0.65)' }}>
                     {step.description}
                   </p>
                 </motion.div>
@@ -124,20 +131,27 @@ export default function HowItWorks() {
                   className="text-center relative"
                 >
                   {/* Faded Number Background */}
-                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-[120px] font-bold text-primary opacity-15 leading-none">
+                  <div 
+                    className="absolute -top-8 left-1/2 -translate-x-1/2 text-[100px] font-serif leading-none"
+                    style={{ color: 'rgba(255,255,255,0.04)' }}
+                  >
                     {step.number}
                   </div>
                   
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
-                    <span className="text-2xl">{step.icon}</span>
+                  <div 
+                    className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10"
+                    style={{ background: '#F5C518' }}
+                  >
+                    <span className="text-2xl" style={{ color: '#0D2B1A' }}>{step.icon}</span>
                   </div>
                   
                   {/* Content */}
-                  <h3 className="font-serif text-xl font-bold text-white mb-2">
+                  <h3 className="font-serif text-2xl font-bold text-white mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-primary-pale">
+                  <p className="font-sans text-base"
+                     style={{ color: 'rgba(255,255,255,0.65)' }}>
                     {step.description}
                   </p>
 
@@ -148,9 +162,9 @@ export default function HowItWorks() {
                         initial={{ height: 0 }}
                         animate={isInView ? { height: 32 } : {}}
                         transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
-                        className="w-0.5 bg-accent"
+                        className="w-0.5"
                         style={{
-                          background: "repeating-linear-gradient(to bottom, #F5C842 0px, #F5C842 4px, transparent 4px, transparent 8px)"
+                          background: "repeating-linear-gradient(to bottom, #F5C518 0px, #F5C518 6px, transparent 6px, transparent 10px)"
                         }}
                       />
                     </div>

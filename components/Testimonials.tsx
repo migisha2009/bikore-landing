@@ -12,7 +12,7 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
-        <span key={i} className="text-accent text-lg">
+        <span key={i} className="text-lg" style={{ color: '#F5C518' }}>
           {i < rating ? "★" : "☆"}
         </span>
       ))}
@@ -49,7 +49,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-primary" ref={ref}>
+    <section id="testimonials" className="py-20 bg-section-testimonials" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
@@ -76,12 +76,22 @@ export default function Testimonials() {
                 delay: index * 0.2,
                 ease: "easeOut"
               }}
-              className="bg-primary-dark rounded-2xl p-6 border border-primary/20 hover:border-primary/40 transition-colors duration-300"
+              className="rounded-2xl p-7 transition-colors duration-300"
+              style={{
+                background: 'rgba(0,0,0,0.2)',
+                border: '1px solid rgba(255,255,255,0.12)'
+              }}
             >
               {/* Avatar and Name */}
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-3">
-                  <span className="text-primary-dark font-bold text-lg">
+                <div 
+                  className="w-12 h-12 rounded-full flex items-center justify-center mr-3"
+                  style={{ background: '#F5C518' }}
+                >
+                  <span 
+                    className="font-bold text-lg"
+                    style={{ color: '#0D2B1A' }}
+                  >
                     {testimonial.initials}
                   </span>
                 </div>
@@ -89,7 +99,7 @@ export default function Testimonials() {
                   <h3 className="font-sans font-semibold text-white">
                     {testimonial.name}
                   </h3>
-                  <p className="text-primary-pale text-sm">
+                  <p className="text-sm" style={{ color: '#B8E08D' }}>
                     {testimonial.location}
                   </p>
                 </div>
@@ -101,7 +111,10 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <blockquote className="text-primary-pale leading-relaxed">
+              <blockquote 
+                className="leading-relaxed"
+                style={{ color: 'rgba(255,255,255,0.8)' }}
+              >
                 "{testimonial.quote}"
               </blockquote>
             </motion.div>
