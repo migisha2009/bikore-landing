@@ -17,26 +17,6 @@ const shouldReduceMotion = () => {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 };
 
-// SVG Wave Divider Component
-function WaveDivider({ reverse = false }: { reverse?: boolean }) {
-  return (
-    <div className={`w-full ${reverse ? 'rotate-180' : ''}`}>
-      <svg 
-        viewBox="0 0 1200 120" 
-        preserveAspectRatio="none"
-        className="w-full h-20"
-      >
-        <path 
-          d={reverse 
-            ? "M0,60 C150,90 350,30 600,60 C850,90 1050,30 1200,60 L1200,120 L0,120 Z"
-            : "M0,60 C150,30 350,90 600,60 C850,30 1050,90 1200,60 L1200,0 L0,0 Z"
-          }
-          fill="currentColor"
-        />
-      </svg>
-    </div>
-  );
-}
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -93,47 +73,17 @@ export default function Home() {
       <Navbar />
       <Hero />
       
-      {/* Wave Divider */}
-      <div className="bg-primary">
-        <WaveDivider />
-      </div>
+      <Features className="border-t border-[rgba(255,255,255,0.08)]" />
       
-      <Features />
+      <HowItWorks className="border-t border-[rgba(255,255,255,0.08)]" />
       
-      {/* Wave Divider */}
-      <div className="bg-cream">
-        <WaveDivider reverse />
-      </div>
+      <Stats className="border-t border-[rgba(255,255,255,0.08)]" />
       
-      <HowItWorks />
+      <Testimonials className="border-t border-[rgba(255,255,255,0.08)]" />
       
-      {/* Wave Divider */}
-      <div className="bg-primary-dark">
-        <WaveDivider />
-      </div>
+      <CTA className="border-t border-[rgba(255,255,255,0.08)]" />
       
-      <Stats />
-      
-      {/* Wave Divider */}
-      <div className="bg-cream">
-        <WaveDivider reverse />
-      </div>
-      
-      <Testimonials />
-      
-      {/* Wave Divider */}
-      <div className="bg-primary">
-        <WaveDivider />
-      </div>
-      
-      <CTA />
-      
-      {/* Wave Divider */}
-      <div className="bg-primary-mid">
-        <WaveDivider reverse />
-      </div>
-      
-      <Footer />
+      <Footer className="border-t border-[rgba(255,255,255,0.08)]" />
 
       {/* Mobile Sticky Button */}
       {showStickyButton && !hasPassedCTA && (

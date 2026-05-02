@@ -20,7 +20,7 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-export default function Testimonials() {
+export default function Testimonials({ className = "" }: { className?: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -49,7 +49,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-section-testimonials" ref={ref}>
+    <section id="testimonials" className={`py-20 bg-section-testimonials ${className}`} ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div

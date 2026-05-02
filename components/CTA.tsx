@@ -3,14 +3,14 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-export default function CTA() {
+export default function CTA({ className = "" }: { className?: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section 
       id="download" 
-      className="py-20 relative overflow-hidden"
+      className={`py-20 bg-section-cta ${className}`} 
       style={{
         background: '#0D2B1A',
         backgroundImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(45,122,58,0.25) 0%, transparent 70%)'

@@ -8,7 +8,7 @@ const stepVariants = {
   visible: { opacity: 1, y: 0 }
 };
 
-export default function HowItWorks() {
+export default function HowItWorks({ className = "" }: { className?: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -34,7 +34,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-section-how" ref={ref}>
+    <section id="how-it-works" className={`py-20 bg-section-how ${className}`} ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div

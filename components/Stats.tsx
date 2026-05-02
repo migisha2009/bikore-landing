@@ -50,7 +50,7 @@ function AnimatedNumber({ value, duration = 2000 }: AnimatedNumberProps) {
   );
 }
 
-export default function Stats() {
+export default function Stats({ className = "" }: { className?: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -62,7 +62,7 @@ export default function Stats() {
   ];
 
   return (
-    <section className="py-20 bg-section-stats" ref={ref}>
+    <section id="stats" className={`py-20 bg-section-stats ${className}`} ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 items-center">
           {stats.map((stat, index) => (
