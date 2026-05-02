@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@import "@fontsource/inter";
+@import "@fontsource/playfair-display";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0D2B1A;
+  font-family: 'Inter', sans-serif;
+  color: #FFFFFF;
+}
