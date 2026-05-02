@@ -1,20 +1,44 @@
 "use client";
 
-import { motion, useAnimation } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
-// Phone Frame Component
+// Phone Frame Component - Exact specifications from reference
 function PhoneFrame({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <div className={`relative ${className}`}>
-      {/* Phone Frame */}
-      <div className="relative bg-[#1C1C1E] rounded-[44px] border-[3px] border-[#2A2A2A] shadow-[0_32px_80px_rgba(0,0,0,0.5)] overflow-hidden">
-        {/* Notch/Dynamic Island */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[28px] bg-[#1C1C1E] rounded-b-[20px] z-10"></div>
+      {/* Outer shell */}
+      <div 
+        className="absolute bg-[#1C1C1E] border-[2px] border-[#3A3A3C] overflow-hidden"
+        style={{
+          width: '240px',
+          height: '480px',
+          borderRadius: '40px',
+          boxShadow: '0 40px 80px rgba(0,0,0,0.6)'
+        }}
+      >
+        {/* Notch at top center */}
+        <div 
+          className="absolute bg-[#1C1C1E] z-10"
+          style={{
+            top: '12px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '80px',
+            height: '6px',
+            borderRadius: '3px'
+          }}
+        />
         
-        {/* Screen Content */}
-        <div className="relative w-full h-full overflow-hidden rounded-[40px]">
+        {/* Inner screen area */}
+        <div 
+          className="absolute bg-white overflow-hidden"
+          style={{
+            width: '100%',
+            height: '100%',
+            borderRadius: '38px'
+          }}
+        >
           {children}
         </div>
       </div>
@@ -26,33 +50,67 @@ export default function Hero() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-primary relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section 
+      id="home" 
+      className="min-h-screen relative overflow-hidden"
+      style={{
+        background: 'radial-gradient(circle at center, #1E5C35 0%, #0D2B1A 100%)',
+        minHeight: '100vh',
+        padding: '60px 80px'
+      }}
+    >
+      {/* Background decorations */}
+      <div 
+        className="absolute pointer-events-none"
+        style={{
+          right: '30%',
+          top: '20%',
+          width: '600px',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(92,184,92,0.12) 0%, transparent 70%)',
+          zIndex: 0
+        }}
+      />
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 16px)',
+          zIndex: 0
+        }}
+      />
+      
+      <div className="max-w-7xl mx-auto relative" style={{ zIndex: 1 }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" style={{ gridTemplateColumns: '50% 50%' }}>
           
-          {/* LEFT SIDE - Text Content */}
-          <div className="space-y-8">
-            {/* Pill Badge */}
+          {/* LEFT COLUMN */}
+          <div className="space-y-8" style={{ zIndex: 1 }}>
+            {/* Small pill at top */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0 }}
-              className="inline-flex items-center bg-primary-dark/80 backdrop-blur-sm rounded-full px-4 py-2 border border-primary/20"
+              className="inline-flex items-center rounded-full"
+              style={{
+                background: 'rgba(255,255,255,0.12)',
+                border: '1px solid rgba(255,255,255,0.2)',
+                borderRadius: '999px',
+                padding: '6px 16px'
+              }}
             >
-              <span className="w-2 h-2 bg-white rounded-full mr-2"></span>
-              <span className="text-white text-sm font-medium">Ikimina savings — now digital</span>
+              <span className="w-2 h-2 bg-white rounded-full mr-2" style={{ color: '#5CB85C' }}>●</span>
+              <span className="text-white text-sm font-medium" style={{ fontSize: '14px' }}>Ikimina savings — now digital</span>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline - Playfair Display */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <h1 className="font-serif font-bold text-white leading-tight">
-                <span className="block text-5xl md:text-7xl lg:text-[80px]">Together,</span>
-                <span className="block text-5xl md:text-7xl lg:text-[80px]">we <em className="text-accent italic">save</em></span>
-                <span className="block text-5xl md:text-7xl lg:text-[80px]">& grow.</span>
+              <h1 className="font-serif text-white leading-tight" style={{ fontFamily: 'Playfair Display, serif', fontWeight: 900, lineHeight: '1.05', marginBottom: '24px' }}>
+                <span className="block" style={{ fontSize: '76px' }}>Together,</span>
+                <span className="block" style={{ fontSize: '76px' }}>we <em style={{ color: '#F5C518', fontStyle: 'italic', fontFamily: 'cursive' }}>save</em></span>
+                <span className="block" style={{ fontSize: '76px' }}>& grow.</span>
               </h1>
             </motion.div>
 
@@ -62,260 +120,449 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <p className="font-sans text-[18px] text-primary-pale leading-relaxed max-w-lg">
+              <p 
+                className="leading-relaxed"
+                style={{
+                  color: 'rgba(255,255,255,0.75)',
+                  fontSize: '18px',
+                  lineHeight: '1.6',
+                  maxWidth: '480px'
+                }}
+              >
                 Bikore brings Rwanda's trusted Ikimina tradition into your smartphone. 
                 Save together, contribute easily, receive your payout on time — every cycle.
               </p>
             </motion.div>
 
-            {/* Buttons */}
+            {/* Button row */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex gap-4"
+              style={{ marginTop: '32px', gap: '16px' }}
             >
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="bg-primary-light text-white px-6 py-3 rounded-full font-sans font-medium hover:bg-primary-light/90 transition-colors"
+                className="text-white rounded-full"
+                style={{
+                  background: '#5CB85C',
+                  borderRadius: '999px',
+                  padding: '14px 28px',
+                  fontSize: '16px',
+                  fontWeight: 600,
+                  border: 'none'
+                }}
               >
-                Start saving free
+                🌱 Start saving free
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.03, backgroundColor: "rgba(255,255,255,0.1)" }}
                 whileTap={{ scale: 0.97 }}
-                className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-sans font-medium hover:bg-white hover:text-primary transition-all duration-200"
+                className="text-white rounded-full"
+                style={{
+                  background: 'transparent',
+                  color: 'white',
+                  border: '1.5px solid rgba(255,255,255,0.5)',
+                  borderRadius: '999px',
+                  padding: '14px 28px',
+                  fontSize: '16px'
+                }}
               >
                 See the app →
               </motion.button>
             </motion.div>
 
-            {/* Avatar Stack */}
+            {/* Avatar row */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex items-center space-x-4"
+              className="flex items-center gap-3"
+              style={{ marginTop: '28px', gap: '12px' }}
             >
-              <div className="flex -space-x-2">
-                <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white">AU</div>
-                <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white">JK</div>
-                <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white">GN</div>
-                <div className="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white">PM</div>
-                <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-sm border-2 border-white">RN</div>
+              <div className="flex">
+                <div 
+                  className="flex items-center justify-center text-white font-bold"
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    background: '#FF6B35',
+                    border: '2px solid #1A4D2E',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    marginRight: '-8px'
+                  }}
+                >AU</div>
+                <div 
+                  className="flex items-center justify-center text-white font-bold"
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    background: '#8B5CF6',
+                    border: '2px solid #1A4D2E',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    marginRight: '-8px'
+                  }}
+                >JK</div>
+                <div 
+                  className="flex items-center justify-center text-white font-bold"
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    background: '#10B981',
+                    border: '2px solid #1A4D2E',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    marginRight: '-8px'
+                  }}
+                >GN</div>
+                <div 
+                  className="flex items-center justify-center text-white font-bold"
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    background: '#EC4899',
+                    border: '2px solid #1A4D2E',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    marginRight: '-8px'
+                  }}
+                >PM</div>
+                <div 
+                  className="flex items-center justify-center text-white font-bold"
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '50%',
+                    background: '#06B6D4',
+                    border: '2px solid #1A4D2E',
+                    fontSize: '11px',
+                    fontWeight: 700
+                  }}
+                >RN</div>
               </div>
-              <span className="text-primary-pale font-sans text-sm">12,000+ Rwandans saving with Bikore</span>
+              <span>
+                <span className="font-bold text-white" style={{ fontSize: '14px' }}>12,000+</span>
+                <span className="font-sans" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px' }}> Rwandans saving with Bikore</span>
+              </span>
             </motion.div>
           </div>
 
-          {/* RIGHT SIDE - Animated Phone Stack */}
+          {/* RIGHT COLUMN */}
           <div 
-            className="relative h-[580px] w-full"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            className="relative w-full hidden lg:block"
+            style={{ 
+              position: 'relative', 
+              height: '580px',
+              overflow: 'visible'
+            }}
           >
-            {/* Phone 1 - Splash (back-left) */}
+            {/* PHONE 1 — Back left phone (Contribute screen) */}
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ y: 80, opacity: 0, rotate: -8 }}
               animate={{ 
+                y: 0, 
                 opacity: 1, 
-                y: 0,
+                rotate: -8,
                 ...(isHovered ? {} : {
-                  y: [-3, 0, -3],
+                  y: [0, -10, 0],
                   transition: {
-                    y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+                    y: { duration: 4, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
                   }
                 })
               }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="absolute left-[0%] top-[8%] z-[1]"
-              style={{ transform: 'rotate(-8deg) scale(0.82)' }}
+              transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
+              style={{
+                position: 'absolute',
+                left: '0px',
+                top: '60px',
+                transform: 'rotate(-8deg) scale(0.88)',
+                zIndex: 1
+              }}
             >
               <PhoneFrame>
-                <div className="w-[180px] h-[380px] relative">
-                  <Image
-                    src="/screens/splash.png"
-                    alt="Bikore splash screen"
-                    fill
-                    className="object-cover"
-                    style={{ backgroundColor: '#0D2B1A' }}
-                    onError={(e) => {
-                      // Fallback to colored div if image not found
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.parentElement!.innerHTML = `
-                        <div class="w-full h-full bg-[#0D2B1A] flex items-center justify-center">
-                          <div class="text-center text-white p-4">
-                            <div class="text-4xl mb-2">🍃</div>
-                            <div class="text-xl font-serif font-bold mb-2">Bikore</div>
-                            <div class="text-sm opacity-80">Get started</div>
-                          </div>
-                        </div>
-                      `;
-                    }}
-                  />
+                <div style={{ background: '#1A4D2E', height: '100%', padding: '20px', color: 'white' }}>
+                  <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '20px' }}>Contribute · Inzu y'Umuryango</div>
+                  <div style={{ fontSize: '12px', opacity: 0.8, marginBottom: '8px' }}>AMOUNT DUE</div>
+                  <div style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '30px' }}>Rwf 50,000</div>
+                  <div style={{ background: 'rgba(255,255,255,0.1)', padding: '12px', borderRadius: '8px', marginBottom: '20px' }}>
+                    <div style={{ fontSize: '12px', marginBottom: '4px' }}>MTN Mobile Money</div>
+                    <div style={{ fontSize: '10px', opacity: 0.7 }}>+250 788 123 456</div>
+                  </div>
+                  <button style={{
+                    background: '#5CB85C',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '8px',
+                    padding: '12px',
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    width: '100%',
+                    position: 'absolute',
+                    bottom: '20px',
+                    left: '20px',
+                    right: '20px'
+                  }}>
+                    Confirm & Pay
+                  </button>
                 </div>
               </PhoneFrame>
             </motion.div>
 
-            {/* Phone 2 - Onboarding 1 (middle-left) */}
+            {/* PHONE 2 — Center front phone (My Groups screen) */}
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ y: 80, opacity: 0, rotate: 0 }}
               animate={{ 
+                y: 0, 
                 opacity: 1, 
-                y: 0,
-                ...(isHovered ? { x: -8 } : {}),
+                rotate: 0,
                 ...(isHovered ? {} : {
-                  y: [-4, 0, -4],
+                  y: [0, -14, 0],
                   transition: {
-                    y: { duration: 3.5, repeat: Infinity, ease: "easeInOut" }
+                    y: { duration: 3.5, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
                   }
                 })
               }}
-              transition={{ duration: 0.8, delay: 0.25 }}
-              className="absolute left-[10%] top-[4%] z-[2]"
-              style={{ transform: 'rotate(-4deg) scale(0.90)' }}
+              transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+              style={{
+                position: 'absolute',
+                left: '140px',
+                top: '0px',
+                transform: 'rotate(0deg) scale(1)',
+                zIndex: 3
+              }}
             >
               <PhoneFrame>
-                <div className="w-[200px] h-[420px] relative">
-                  <Image
-                    src="/screens/onboarding1.png"
-                    alt="Create your Ikimina group screen"
-                    fill
-                    className="object-cover"
-                    style={{ backgroundColor: '#1A4D2E' }}
-                    onError={(e) => {
-                      // Fallback to colored div if image not found
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.parentElement!.innerHTML = `
-                        <div class="w-full h-full bg-[#1A4D2E] flex items-center justify-center">
-                          <div class="text-center text-white p-4">
-                            <div class="text-lg font-serif font-bold mb-2">Create your Ikimina group</div>
-                            <div class="text-sm opacity-80">Invite friends and family</div>
-                          </div>
+                <div style={{ background: 'white', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  {/* Top bar */}
+                  <div style={{ 
+                    background: '#1A4D2E', 
+                    color: 'white', 
+                    padding: '8px 16px', 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center',
+                    fontSize: '12px'
+                  }}>
+                    <span>9:41</span>
+                    <span>···</span>
+                  </div>
+                  
+                  {/* Name header */}
+                  <div style={{ 
+                    background: '#1A4D2E', 
+                    color: 'white', 
+                    padding: '16px',
+                    fontFamily: 'Playfair Display, serif',
+                    fontSize: '20px',
+                    fontWeight: 'bold'
+                  }}>
+                    Amina Uwimana
+                  </div>
+                  
+                  {/* Green card */}
+                  <div style={{ 
+                    background: '#1A4D2E', 
+                    color: 'white', 
+                    margin: '16px',
+                    padding: '16px',
+                    borderRadius: '12px'
+                  }}>
+                    <div style={{ fontSize: '12px', opacity: 0.8, marginBottom: '4px' }}>TOTAL SAVINGS</div>
+                    <div style={{ fontSize: '24px', fontWeight: 'bold' }}>Rwf 127,500</div>
+                  </div>
+                  
+                  {/* White section "MY GROUPS" */}
+                  <div style={{ 
+                    background: 'white', 
+                    margin: '0 16px',
+                    borderRadius: '12px',
+                    padding: '12px',
+                    flex: 1
+                  }}>
+                    <div style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '12px', color: '#333' }}>MY GROUPS</div>
+                    
+                    {/* Row 1 */}
+                    <div style={{ 
+                      display: 'flex', 
+                      justifyContent: 'space-between', 
+                      alignItems: 'center',
+                      padding: '8px 0',
+                      borderBottom: '1px solid #f0f0f0'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <span style={{ marginRight: '8px' }}>🏠</span>
+                        <div>
+                          <div style={{ fontSize: '12px', fontWeight: '500' }}>Inzu y'Umuryango</div>
+                          <div style={{ fontSize: '10px', color: '#666' }}>Cycle 4 of 8 · 6 members</div>
                         </div>
-                      `;
-                    }}
-                  />
+                      </div>
+                      <span style={{ 
+                        background: '#e8f5e8', 
+                        color: '#2D7A3A', 
+                        padding: '4px 8px', 
+                        borderRadius: '12px',
+                        fontSize: '10px',
+                        fontWeight: 'bold'
+                      }}>Rwf 50K</span>
+                    </div>
+                    
+                    {/* Row 2 */}
+                    <div style={{ 
+                      display: 'flex', 
+                      justifyContent: 'space-between', 
+                      alignItems: 'center',
+                      padding: '8px 0'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <span style={{ marginRight: '8px' }}>💼</span>
+                        <div>
+                          <div style={{ fontSize: '12px', fontWeight: '500' }}>Kazi Hamwe</div>
+                          <div style={{ fontSize: '10px', color: '#666' }}>Cycle 7 of 10 · 10 members</div>
+                        </div>
+                      </div>
+                      <span style={{ 
+                        background: '#e8f5e8', 
+                        color: '#2D7A3A', 
+                        padding: '4px 8px', 
+                        borderRadius: '12px',
+                        fontSize: '10px',
+                        fontWeight: 'bold'
+                      }}>Rwf 100K</span>
+                    </div>
+                  </div>
+                  
+                  {/* Highlighted row */}
+                  <div style={{ 
+                    background: '#FFF3CD', 
+                    margin: '16px',
+                    padding: '12px',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                  }}>
+                    <div>
+                      <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#856404' }}>Contribution due</div>
+                      <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#856404' }}>Rwf 50,000 · July 30</div>
+                    </div>
+                    <button style={{
+                      background: '#5CB85C',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '6px',
+                      padding: '6px 12px',
+                      fontSize: '12px',
+                      fontWeight: 'bold'
+                    }}>Pay</button>
+                  </div>
+                  
+                  {/* Bottom nav bar */}
+                  <div style={{ 
+                    background: 'white', 
+                    borderTop: '1px solid #e0e0e0',
+                    padding: '8px 0',
+                    display: 'flex',
+                    justifyContent: 'space-around'
+                  }}>
+                    <div style={{ fontSize: '16px', opacity: 0.5 }}>🏠</div>
+                    <div style={{ fontSize: '16px', opacity: 0.5 }}>👥</div>
+                    <div style={{ 
+                      fontSize: '16px', 
+                      background: '#5CB85C', 
+                      color: 'white',
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>💳</div>
+                    <div style={{ fontSize: '16px', opacity: 0.5 }}>🔔</div>
+                    <div style={{ fontSize: '16px', opacity: 0.5 }}>👤</div>
+                  </div>
                 </div>
               </PhoneFrame>
             </motion.div>
 
-            {/* Phone 3 - Group Pool (center-front - HERO) */}
+            {/* PHONE 3 — Back right phone (partially visible) */}
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ y: 80, opacity: 0, rotate: 6 }}
               animate={{ 
+                y: 0, 
                 opacity: 1, 
-                y: 0,
-                scale: isHovered ? 1.04 : 1,
+                rotate: 6,
                 ...(isHovered ? {} : {
-                  y: [-8, 0, -8],
+                  y: [0, -8, 0],
                   transition: {
-                    y: { duration: 3, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }
+                    y: { duration: 5, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
                   }
                 })
               }}
-              transition={{ 
-                duration: 0.8, 
-                delay: 0.4,
-                scale: { type: "spring", stiffness: 300, damping: 30 }
+              transition={{ duration: 0.7, delay: 0.5, ease: 'easeOut' }}
+              style={{
+                position: 'absolute',
+                left: '330px',
+                top: '50px',
+                transform: 'rotate(6deg) scale(0.85)',
+                zIndex: 2
               }}
-              className="absolute left-[22%] top-[0%] z-[4]"
             >
               <PhoneFrame>
-                <div className="w-[220px] h-[460px] relative">
-                  <Image
-                    src="/screens/group-pool.png"
-                    alt="Abahinzi Ikimina group pool screen"
-                    fill
-                    className="object-cover"
-                    style={{ backgroundColor: '#FFFFFF' }}
-                    onError={(e) => {
-                      // Fallback to colored div if image not found
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.parentElement!.innerHTML = `
-                        <div class="w-full h-full bg-white flex flex-col">
-                          <div class="bg-primary p-4 text-white">
-                            <div class="text-sm font-medium">Abahinzi Ikimina</div>
-                          </div>
-                          <div class="flex-1 p-4">
-                            <div class="text-center mb-4">
-                              <div class="text-3xl font-bold text-primary-dark">240,000 RWF</div>
-                              <div class="text-sm text-gray-600">Group Savings Pool</div>
-                            </div>
-                            <div class="space-y-2 mb-4">
-                              <div class="flex justify-between text-sm">
-                                <span>Claudine U.</span>
-                                <span>60,000 RWF</span>
-                              </div>
-                              <div class="flex justify-between text-sm">
-                                <span>Jean-Pierre N.</span>
-                                <span>60,000 RWF</span>
-                              </div>
-                              <div class="flex justify-between text-sm">
-                                <span>Grace M.</span>
-                                <span>60,000 RWF</span>
-                              </div>
-                              <div class="flex justify-between text-sm">
-                                <span>Others</span>
-                                <span>60,000 RWF</span>
-                              </div>
-                            </div>
-                            <button class="w-full bg-primary text-white py-2 rounded-lg font-medium">
-                              Contribute Now
-                            </button>
-                          </div>
-                        </div>
-                      `;
-                    }}
-                  />
+                <div style={{ background: '#1A4D2E', height: '100%', padding: '20px', color: 'white' }}>
+                  <div style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '8px', opacity: 0.9 }}>y'Umuryango</div>
+                  <div style={{ fontSize: '14px', marginBottom: '20px', opacity: 0.8 }}>Monthly · Rwf 50K</div>
+                  
+                  {/* Progress bar */}
+                  <div style={{ marginBottom: '20px' }}>
+                    <div style={{ fontSize: '12px', marginBottom: '8px', opacity: 0.8 }}>Progress</div>
+                    <div style={{ 
+                      background: 'rgba(255,255,255,0.2)', 
+                      height: '8px', 
+                      borderRadius: '4px',
+                      overflow: 'hidden'
+                    }}>
+                      <div style={{
+                        background: '#F5C518',
+                        height: '100%',
+                        width: '58%',
+                        borderRadius: '4px'
+                      }} />
+                    </div>
+                    <div style={{ fontSize: '12px', marginTop: '4px', opacity: 0.8 }}>58% Complete</div>
+                  </div>
+                  
+                  {/* Cards */}
+                  <div style={{ display: 'flex', gap: '12px' }}>
+                    <div style={{
+                      background: 'rgba(255,255,255,0.1)',
+                      padding: '12px',
+                      borderRadius: '8px',
+                      flex: 1
+                    }}>
+                      <div style={{ fontSize: '10px', opacity: 0.8, marginBottom: '4px' }}>3 left</div>
+                      <div style={{ fontSize: '12px', fontWeight: 'bold' }}>CYCLES</div>
+                    </div>
+                    <div style={{
+                      background: 'rgba(255,255,255,0.1)',
+                      padding: '12px',
+                      borderRadius: '8px',
+                      flex: 1
+                    }}>
+                      <div style={{ fontSize: '10px', opacity: 0.8, marginBottom: '4px' }}>Aug 1</div>
+                      <div style={{ fontSize: '12px', fontWeight: 'bold' }}>YOUR TURN</div>
+                    </div>
+                  </div>
                 </div>
               </PhoneFrame>
             </motion.div>
-
-            {/* Phone 4 - Onboarding 2 (right) */}
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ 
-                opacity: 1, 
-                y: 0,
-                ...(isHovered ? { x: 8 } : {}),
-                ...(isHovered ? {} : {
-                  y: [-6, 0, -6],
-                  transition: {
-                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-                  }
-                })
-              }}
-              transition={{ duration: 0.8, delay: 0.55 }}
-              className="absolute left-[58%] top-[6%] z-[3]"
-              style={{ transform: 'rotate(5deg) scale(0.88)' }}
-            >
-              <PhoneFrame>
-                <div className="w-[195px] h-[400px] relative">
-                  <Image
-                    src="/screens/onboarding2.png"
-                    alt="Contribute every cycle screen"
-                    fill
-                    className="object-cover"
-                    style={{ backgroundColor: '#1A6B30' }}
-                    onError={(e) => {
-                      // Fallback to colored div if image not found
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.parentElement!.innerHTML = `
-                        <div class="w-full h-full bg-[#1A6B30] flex items-center justify-center">
-                          <div class="text-center text-white p-4">
-                            <div class="text-lg font-serif font-bold mb-2">Contribute every cycle</div>
-                            <div class="text-sm opacity-80">Never miss a payment</div>
-                          </div>
-                        </div>
-                      `;
-                    }}
-                  />
-                </div>
-              </PhoneFrame>
-            </motion.div>
-
           </div>
         </div>
       </div>

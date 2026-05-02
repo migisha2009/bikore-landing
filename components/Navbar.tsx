@@ -1,166 +1,122 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const navLinks = [
+    "Screens",
+    "How it works", 
+    "Features",
+    "Stories",
+    "Download"
+  ];
 
   return (
-    <>
-      <nav 
-        className={`fixed top-0 w-full z-50 bg-cream transition-all duration-300 ${
-          isScrolled ? "shadow-md" : ""
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <div className="flex items-center">
-              <span className="text-2xl mr-2">🍃</span>
-              <h1 className="text-2xl font-serif font-bold text-primary">Bikore</h1>
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a 
-                href="#how-it-works" 
-                className="text-primary hover:text-primary-mid transition-colors font-sans text-[15px]"
-              >
-                How it works
-              </a>
-              <span className="text-primary/60">·</span>
-              <a 
-                href="#features" 
-                className="text-primary hover:text-primary-mid transition-colors font-sans text-[15px]"
-              >
-                Features
-              </a>
-              <span className="text-primary/60">·</span>
-              <a 
-                href="#testimonials" 
-                className="text-primary hover:text-primary-mid transition-colors font-sans text-[15px]"
-              >
-                Stories
-              </a>
-              <span className="text-primary/60">·</span>
-              <a 
-                href="#download" 
-                className="text-primary hover:text-primary-mid transition-colors font-sans text-[15px]"
-              >
-                Download
-              </a>
-              
-              {/* CTA Button */}
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="bg-primary text-white px-6 py-2 rounded-full font-sans font-medium hover:bg-primary-mid transition-all duration-200"
-              >
-                Get the app
-              </motion.button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button
-                onClick={toggleMobileMenu}
-                className="text-primary focus:outline-none"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  {isMobileMenuOpen ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  )}
-                </svg>
-              </button>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F2EFE4] border-b border-[rgba(0,0,0,0.08)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex items-center">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-[#1A3D2B] rounded flex items-center justify-center">
+                <span className="text-white text-sm">🍃</span>
+              </div>
+              <h1 className="text-[22px] font-serif text-[#1A3D2B]" style={{ fontWeight: 800 }}>
+                Bikore
+              </h1>
             </div>
           </div>
-        </div>
-      </nav>
 
-      {/* Mobile Menu Drawer */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-16 left-0 right-0 bg-cream shadow-lg z-40 md:hidden"
-          >
-            <div className="px-4 py-6 space-y-4">
-              <a 
-                href="#how-it-works" 
-                className="block text-primary hover:text-primary-mid transition-colors font-sans text-[15px] py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                How it works
-              </a>
-              <a 
-                href="#features" 
-                className="block text-primary hover:text-primary-mid transition-colors font-sans text-[15px] py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Features
-              </a>
-              <a 
-                href="#testimonials" 
-                className="block text-primary hover:text-primary-mid transition-colors font-sans text-[15px] py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Stories
-              </a>
-              <a 
-                href="#download" 
-                className="block text-primary hover:text-primary-mid transition-colors font-sans text-[15px] py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Download
-              </a>
-              
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="w-full bg-primary text-white px-6 py-3 rounded-full font-sans font-medium hover:bg-primary-mid transition-all duration-200 mt-4"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Get the app
-              </motion.button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-6">
+            {navLinks.map((link, index) => (
+              <span key={link}>
+                <a
+                  href={`#${link.toLowerCase().replace(" ", "-")}`}
+                  className="text-[#2A2A2A] text-[15px] hover:text-[#1A3D2B] transition-colors duration-200"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                >
+                  {link}
+                </a>
+                {index < navLinks.length - 1 && <span className="text-[#2A2A2A] mx-2">·</span>}
+              </span>
+            ))}
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="bg-[#2D6A3F] text-white rounded-full"
+              style={{ 
+                borderRadius: '999px', 
+                padding: '10px 24px', 
+                fontWeight: 600,
+                fontFamily: 'Inter, sans-serif',
+                boxShadow: 'none',
+                border: 'none'
+              }}
+            >
+              Get the app
+            </motion.button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-[#1A3D2B] p-2"
+            >
+              <div className="w-6 h-0.5 bg-current mb-1.5"></div>
+              <div className="w-6 h-0.5 bg-current mb-1.5"></div>
+              <div className="w-6 h-0.5 bg-current"></div>
+            </motion.button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden overflow-hidden"
+            >
+              <div className="py-4 space-y-2">
+                {navLinks.map((link) => (
+                  <a
+                    key={link}
+                    href={`#${link.toLowerCase().replace(" ", "-")}`}
+                    className="block py-2 text-[#2A2A2A] hover:text-[#1A3D2B] transition-colors duration-200"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link}
+                  </a>
+                ))}
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="w-full bg-[#2D6A3F] text-white rounded-full mt-4"
+                  style={{ 
+                    borderRadius: '999px', 
+                    fontWeight: 600,
+                    fontFamily: 'Inter, sans-serif',
+                    boxShadow: 'none',
+                    border: 'none'
+                  }}
+                >
+                  Get the app
+                </motion.button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </nav>
   );
 }
