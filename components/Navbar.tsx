@@ -36,7 +36,7 @@ export default function Navbar() {
               <span key={link}>
                 <a
                   href={`#${link.toLowerCase().replace(" ", "-")}`}
-                  className="text-[#1A1A1A] text-[15px] hover:text-dark-green transition-colors duration-200"
+                  className="text-[#1A1A1A] text-[15px] hover:text-[#1A3D2B] transition-colors duration-200"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
                   {link}
@@ -67,7 +67,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-dark-green p-2"
+              className="text-[#1A3D2B] p-2"
             >
               <div className="w-6 h-0.5 bg-current mb-1.5"></div>
               <div className="w-6 h-0.5 bg-current mb-1.5"></div>
@@ -91,7 +91,7 @@ export default function Navbar() {
                   <a
                     key={link}
                     href={`#${link.toLowerCase().replace(" ", "-")}`}
-                    className="block py-2 text-[#1A1A1A] hover:text-dark-green transition-colors duration-200"
+                    className="block py-2 text-[#1A1A1A] hover:text-[#1A3D2B] transition-colors duration-200"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
