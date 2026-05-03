@@ -7,6 +7,7 @@ import Features from "@/components/Features";
 import Comparison from "@/components/Comparison";
 import HowItWorks from "@/components/HowItWorks";
 import Stats from "@/components/Stats";
+import Partners from "@/components/Partners";
 import Testimonials from "@/components/Testimonials";
 import VideoDemo from "@/components/VideoDemo";
 import CTA from "@/components/CTA";
@@ -89,6 +90,8 @@ export default function Home() {
       <Features className="border-t border-[rgba(255,255,255,0.08)]" />
       
       <Stats className="border-t border-[rgba(255,255,255,0.08)]" />
+      
+      <Partners />
       
       <Testimonials className="border-t border-[rgba(255,255,255,0.08)]" />
       
