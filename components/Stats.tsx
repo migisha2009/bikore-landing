@@ -141,17 +141,25 @@ export default function Stats({ className = "" }: { className?: string }) {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-4 gap-0 items-center">
           {stats.map((stat, index) => (
-            <div key={index} className="relative text-center" style={{ padding: '20px 40px' }}>
+            <div key={index} className="relative" style={{ 
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '20px 40px'
+            }}>
               {/* Stat Content */}
               <div>
                 <div 
                   style={{
                     fontFamily: 'Playfair Display',
-                    fontSize: '64px',
+                    fontSize: stat.suffix === 'B+' ? 'clamp(32px, 3.5vw, 52px)' : 'clamp(36px, 4vw, 56px)',
                     fontWeight: 900,
                     color: 'white',
                     lineHeight: 1,
-                    marginBottom: '12px'
+                    marginBottom: '12px',
+                    whiteSpace: 'nowrap',
+                    overflow: 'visible'
                   }}
                 >
                   {stat.isDecimal ? (
@@ -164,7 +172,7 @@ export default function Stats({ className = "" }: { className?: string }) {
                       <span 
                         style={{
                           fontFamily: 'Playfair Display',
-                          fontSize: '64px',
+                          fontSize: 'clamp(36px, 4vw, 56px)',
                           fontWeight: 900,
                           color: '#F5C518',
                           lineHeight: 1,
@@ -176,39 +184,53 @@ export default function Stats({ className = "" }: { className?: string }) {
                     </>
                   ) : (
                     <>
-                      <CountUp 
-                        end={stat.end} 
-                        duration={stat.duration}
-                        prefix={stat.prefix}
-                        suffix=""
-                        delay={stat.delay}
-                      />
                       {stat.suffix === 'B+' ? (
-                        <span 
-                          style={{
-                            fontFamily: 'Playfair Display',
-                            fontSize: '64px',
-                            fontWeight: 900,
-                            color: '#B8E08D',
-                            lineHeight: 1,
-                            marginLeft: '-8px'
-                          }}
-                        >
-                          B+
-                        </span>
+                        <>
+                          <span style={{ color: 'white', whiteSpace: 'nowrap' }}>
+                            Rwf <CountUp 
+                              end={stat.end} 
+                              duration={stat.duration}
+                              prefix=""
+                              suffix=""
+                              delay={stat.delay}
+                            />
+                          </span>
+                          <span 
+                            style={{
+                              fontFamily: 'Playfair Display',
+                              fontSize: 'clamp(32px, 3.5vw, 52px)',
+                              fontWeight: 900,
+                              color: '#B8E08D',
+                              lineHeight: 1,
+                              marginLeft: '-8px',
+                              whiteSpace: 'nowrap'
+                            }}
+                          >
+                            B+
+                          </span>
+                        </>
                       ) : (
-                        <span 
-                          style={{
-                            fontFamily: 'Playfair Display',
-                            fontSize: '64px',
-                            fontWeight: 900,
-                            color: 'white',
-                            lineHeight: 1,
-                            marginLeft: '-8px'
-                          }}
-                        >
-                          {stat.suffix}
-                        </span>
+                        <>
+                          <CountUp 
+                            end={stat.end} 
+                            duration={stat.duration}
+                            prefix={stat.prefix}
+                            suffix=""
+                            delay={stat.delay}
+                          />
+                          <span 
+                            style={{
+                              fontFamily: 'Playfair Display',
+                              fontSize: 'clamp(36px, 4vw, 56px)',
+                              fontWeight: 900,
+                              color: 'white',
+                              lineHeight: 1,
+                              marginLeft: '-8px'
+                            }}
+                          >
+                            {stat.suffix}
+                          </span>
+                        </>
                       )}
                     </>
                   )}
@@ -221,7 +243,7 @@ export default function Stats({ className = "" }: { className?: string }) {
                     fontWeight: 500,
                     color: '#5BAD5B',
                     letterSpacing: '0.02em',
-                    marginBottom: '4px'
+                    marginTop: '12px'
                   }}
                 >
                   {stat.label}
