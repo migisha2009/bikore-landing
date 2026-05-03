@@ -64,14 +64,14 @@ export default function Home() {
 
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-primary-dark">
+      <div className="min-h-screen">
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-primary/20 z-50"
+        className="fixed top-0 left-0 right-0 h-1 bg-forest-pale/20 z-50"
         style={{ originX: 0 }}
       >
         <motion.div
-          className="h-full bg-accent"
+          className="h-full bg-gold"
           style={{ scaleX: scrollProgress }}
           {...progressAnimation}
         />
@@ -81,27 +81,27 @@ export default function Home() {
       <Navbar />
       <Hero />
       
-      <Screens className="border-t border-[rgba(255,255,255,0.08)]" />
+      <Screens className="border-t border-forest-mid/8" />
       
-      <HowItWorks className="border-t border-[rgba(255,255,255,0.08)]" />
+      <HowItWorks className="border-t border-forest-mid/8" />
       
       <Comparison />
       
-      <Features className="border-t border-[rgba(255,255,255,0.08)]" />
+      <Features className="border-t border-forest-mid/8" />
       
-      <Stats className="border-t border-[rgba(255,255,255,0.08)]" />
+      <Stats className="border-t border-forest-mid/8" />
       
       <Partners />
       
-      <Testimonials className="border-t border-[rgba(255,255,255,0.08)]" />
+      <Testimonials className="border-t border-forest-mid/8" />
       
       <VideoDemo />
       
-      <CTA className="border-t border-[rgba(255,255,255,0.08)]" />
+      <CTA className="border-t border-forest-mid/8" />
       
       <Contact />
       
-      <Footer className="border-t border-[rgba(255,255,255,0.08)]" />
+      <Footer className="border-t border-white/6" />
 
       {/* QR Download Widget */}
       <QRDownloadWidget />
@@ -110,7 +110,7 @@ export default function Home() {
       {showStickyButton && !hasPassedCTA && (
         <motion.button
           {...stickyButtonAnimation}
-          className="md:hidden fixed bottom-6 left-6 right-6 bg-primary-light text-white px-6 py-4 rounded-full font-sans font-medium shadow-lg z-40"
+          className="md:hidden fixed bottom-6 left-6 right-6 bg-forest-dark text-white px-6 py-4 rounded-full font-sans font-medium shadow-lg z-40"
           onClick={() => {
             const downloadSection = document.getElementById('download');
             downloadSection?.scrollIntoView({ behavior: 'smooth' });

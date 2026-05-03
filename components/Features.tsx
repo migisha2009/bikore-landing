@@ -57,19 +57,19 @@ export default function Features({ className = "" }: { className?: string }) {
         >
           <div className="inline-flex items-center px-4 py-1 rounded-full mb-4"
                style={{
-                 background: 'rgba(91,173,91,0.2)',
-                 border: '1px solid rgba(91,173,91,0.3)'
+                 background: 'rgba(45,106,63,0.1)',
+                 border: '1px solid rgba(45,106,63,0.2)'
                }}>
             <span className="font-sans text-xs font-semibold tracking-widest uppercase"
-                  style={{ color: '#B8E08D' }}>
+                  style={{ color: '#2D6A3F' }}>
               FEATURES
             </span>
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-forest-darkest mb-4">
             Everything your Ikimina needs
           </h2>
           <p className="font-sans text-lg max-w-2xl mx-auto"
-             style={{ color: 'rgba(255,255,255,0.6)' }}>
+             style={{ color: '#3D5A47' }}>
             Powerful tools designed for modern group savings circles in Rwanda
           </p>
         </motion.div>
@@ -89,30 +89,34 @@ export default function Features({ className = "" }: { className?: string }) {
               }}
               className="rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 group"
               style={{
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.1)'
+                background: '#FFFFFF',
+                border: '1px solid rgba(26,61,43,0.1)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(91,173,91,0.4)';
-                e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
+                e.currentTarget.style.borderColor = 'rgba(26,61,43,0.25)';
+                e.currentTarget.style.background = 'rgba(26,61,43,0.04)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.06)';
+                e.currentTarget.style.transform = 'translateY(-3px)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
-                e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                e.currentTarget.style.borderColor = 'rgba(26,61,43,0.1)';
+                e.currentTarget.style.background = '#FFFFFF';
+                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
               {/* Icon */}
               <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300"
-                   style={{ background: 'rgba(91,173,91,0.2)' }}>
-                <span className="text-2xl" style={{ color: '#B8E08D' }}>{feature.icon}</span>
+                   style={{ background: 'rgba(45,106,63,0.1)' }}>
+                <span className="text-2xl" style={{ color: '#2D6A3F' }}>{feature.icon}</span>
               </div>
               
               {/* Content */}
-              <h3 className="font-sans text-lg font-bold text-white mb-3">
+              <h3 className="font-sans text-lg font-bold text-forest-darkest mb-3">
                 {feature.title}
               </h3>
               <p className="leading-relaxed text-sm"
-                 style={{ color: 'rgba(255,255,255,0.6)' }}>
+                 style={{ color: '#6B8C75' }}>
                 {feature.description}
               </p>
             </motion.div>

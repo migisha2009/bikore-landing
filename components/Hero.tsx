@@ -16,7 +16,7 @@ function PhoneFrame({ children, className = "" }: { children: React.ReactNode; c
           width: '240px',
           height: '480px',
           borderRadius: '40px',
-          boxShadow: '0 40px 80px rgba(0,0,0,0.6)'
+          boxShadow: '0 40px 80px rgba(0,0,0,0.2)'
         }}
       >
         {/* Notch at top center */}
@@ -58,8 +58,8 @@ export default function Hero() {
       id="home" 
       className="min-h-screen relative overflow-hidden"
       style={{
-        background: '#0D2B1A',
-        backgroundImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(45,122,58,0.25) 0%, transparent 70%)',
+        background: '#F4F0E6',
+        backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(26,61,43,0.04) 0%, transparent 60%)',
         minHeight: '100vh',
         padding: '60px 80px'
       }}
@@ -96,14 +96,14 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0 }}
               className="inline-flex items-center rounded-full"
               style={{
-                background: 'rgba(255,255,255,0.12)',
-                border: '1px solid rgba(255,255,255,0.2)',
+                background: 'rgba(26,61,43,0.08)',
+                border: '1px solid rgba(26,61,43,0.15)',
                 borderRadius: '999px',
                 padding: '6px 16px'
               }}
             >
-              <span className="w-2 h-2 bg-white rounded-full mr-2" style={{ color: '#5CB85C' }}>●</span>
-              <span className="text-white text-sm font-medium" style={{ fontSize: '14px' }}>Ikimina savings — now digital</span>
+              <span className="w-2 h-2 bg-forest-dark rounded-full mr-2" style={{ color: '#5CB85C' }}>●</span>
+              <span className="text-forest-dark text-sm font-medium" style={{ fontSize: '14px' }}>Ikimina savings — now digital</span>
             </motion.div>
 
             {/* Headline - Playfair Display */}
@@ -112,7 +112,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <h1 className="font-serif text-white leading-tight" style={{ fontFamily: 'Playfair Display, serif', fontWeight: 900, lineHeight: '1.05', marginBottom: '24px' }}>
+              <h1 className="font-serif text-forest-darkest leading-tight" style={{ fontFamily: 'Playfair Display, serif', fontWeight: 900, lineHeight: '1.05', marginBottom: '24px' }}>
                 <span className="block" style={{ fontSize: '76px' }}>{t('hero.title').split('.')[0]}</span>
                 <span className="block" style={{ fontSize: '76px' }}>{t('hero.title').split('.')[1]}</span>
               </h1>
@@ -127,7 +127,7 @@ export default function Hero() {
               <p 
                 className="leading-relaxed"
                 style={{
-                  color: 'rgba(255,255,255,0.75)',
+                  color: '#3D5A47',
                   fontSize: '18px',
                   lineHeight: '1.6',
                   maxWidth: '480px'
@@ -150,7 +150,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.97 }}
                 className="text-white rounded-full"
                 style={{
-                  background: '#5CB85C',
+                  background: '#2D6A3F',
                   borderRadius: '999px',
                   padding: '14px 28px',
                   fontSize: '16px',
@@ -163,11 +163,11 @@ export default function Hero() {
               <motion.button
                 whileHover={{ scale: 1.03, backgroundColor: "rgba(255,255,255,0.1)" }}
                 whileTap={{ scale: 0.97 }}
-                className="text-white rounded-full flex items-center gap-2"
+                className="text-forest-dark rounded-full flex items-center gap-2"
                 style={{
                   background: 'transparent',
-                  color: 'white',
-                  border: '1.5px solid rgba(255,255,255,0.5)',
+                  color: '#1A3D2B',
+                  border: '1.5px solid rgba(26,61,43,0.35)',
                   borderRadius: '999px',
                   padding: '14px 28px',
                   fontSize: '16px'
@@ -201,7 +201,7 @@ export default function Hero() {
                     height: '36px',
                     borderRadius: '50%',
                     background: '#FF6B35',
-                    border: '2px solid #1A4D2E',
+                    border: '2px solid #F4F0E6',
                     fontSize: '11px',
                     fontWeight: 700,
                     marginRight: '-8px'
@@ -214,7 +214,7 @@ export default function Hero() {
                     height: '36px',
                     borderRadius: '50%',
                     background: '#8B5CF6',
-                    border: '2px solid #1A4D2E',
+                    border: '2px solid #F4F0E6',
                     fontSize: '11px',
                     fontWeight: 700,
                     marginRight: '-8px'
@@ -227,7 +227,7 @@ export default function Hero() {
                     height: '36px',
                     borderRadius: '50%',
                     background: '#10B981',
-                    border: '2px solid #1A4D2E',
+                    border: '2px solid #F4F0E6',
                     fontSize: '11px',
                     fontWeight: 700,
                     marginRight: '-8px'
@@ -240,7 +240,7 @@ export default function Hero() {
                     height: '36px',
                     borderRadius: '50%',
                     background: '#EC4899',
-                    border: '2px solid #1A4D2E',
+                    border: '2px solid #F4F0E6',
                     fontSize: '11px',
                     fontWeight: 700,
                     marginRight: '-8px'
@@ -253,15 +253,15 @@ export default function Hero() {
                     height: '36px',
                     borderRadius: '50%',
                     background: '#06B6D4',
-                    border: '2px solid #1A4D2E',
+                    border: '2px solid #F4F0E6',
                     fontSize: '11px',
                     fontWeight: 700
                   }}
                 >RN</div>
               </div>
               <span>
-                <span className="font-bold text-white" style={{ fontSize: '14px' }}>12,000+</span>
-                <span className="font-sans" style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px' }}> Rwandans saving with Bikore</span>
+                <span className="font-bold text-forest-dark" style={{ fontSize: '14px' }}>12,000+</span>
+                <span className="font-sans" style={{ color: '#3D5A47', fontSize: '14px' }}> Rwandans saving with Bikore</span>
               </span>
             </motion.div>
           </div>

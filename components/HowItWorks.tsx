@@ -18,21 +18,21 @@ export default function HowItWorks({ className = "" }: { className?: string }) {
       title: "Create your Ikimina",
       description: "Set up a savings group, choose your amount and cycle. Invite trusted people to join via link or contacts.",
       icon: "👥",
-      iconBg: "rgba(139,92,246,0.3)"
+      iconBg: "rgba(139,92,246,0.12)"
     },
     {
       number: "02", 
       title: "Contribute every cycle",
       description: "Everyone contributes a fixed amount via MTN MoMo or Airtel Money. Automatic reminders keep everyone on track.",
       icon: "💰",
-      iconBg: "rgba(245,197,24,0.2)"
+      iconBg: "rgba(201,168,76,0.15)"
     },
     {
       number: "03",
       title: "Receive your payout", 
       description: "When it's your turn, the full pot lands in your Mobile Money instantly. Achieve your goals, one cycle at a time.",
       icon: "🎉",
-      iconBg: "rgba(91,173,91,0.2)"
+      iconBg: "rgba(45,106,63,0.12)"
     }
   ];
 
@@ -40,7 +40,7 @@ export default function HowItWorks({ className = "" }: { className?: string }) {
     <section 
       id="how-it-works" 
       className={`${className}`}
-      style={{ backgroundColor: '#0D2B1A', padding: '100px 80px' }}
+      style={{ backgroundColor: '#FFFFFF', borderTop: '1px solid rgba(26,61,43,0.08)', borderBottom: '1px solid rgba(26,61,43,0.08)', padding: '100px 80px' }}
       ref={ref}
     >
       <div className="max-w-7xl mx-auto">
@@ -56,7 +56,7 @@ export default function HowItWorks({ className = "" }: { className?: string }) {
           <div 
             className="flex items-center gap-2 mb-2"
             style={{ 
-              color: '#5BAD5B',
+              color: '#2D6A3F',
               fontSize: '13px',
               fontWeight: 600,
               letterSpacing: '0.12em',
@@ -68,7 +68,7 @@ export default function HowItWorks({ className = "" }: { className?: string }) {
               style={{ 
                 width: '40px', 
                 height: '2px', 
-                backgroundColor: '#5BAD5B' 
+                backgroundColor: '#2D6A3F' 
               }} 
             />
           </div>
@@ -85,8 +85,8 @@ export default function HowItWorks({ className = "" }: { className?: string }) {
               lineHeight: 1
             }}
           >
-            <span style={{ color: 'white' }}>Simple as </span>
-            <span style={{ color: '#F5C518', fontStyle: 'italic' }}>1, 2, 3</span>
+            <span style={{ color: '#0F2419' }}>Simple as </span>
+            <span style={{ color: '#C9A84C', fontStyle: 'italic' }}>1, 2, 3</span>
           </h2>
         </motion.div>
 
@@ -110,17 +110,19 @@ export default function HowItWorks({ className = "" }: { className?: string }) {
               }}
               className="relative overflow-hidden"
               style={{
-                background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(255,255,255,0.1)',
+                background: '#F4F0E6',
+                border: '1px solid rgba(26,61,43,0.1)',
                 borderRadius: '24px',
                 padding: '36px 32px',
                 minHeight: '280px'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(91,173,91,0.35)';
+                e.currentTarget.style.borderColor = 'rgba(26,61,43,0.25)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.06)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                e.currentTarget.style.borderColor = 'rgba(26,61,43,0.1)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             >
               {/* Faded Number Background */}
@@ -130,7 +132,7 @@ export default function HowItWorks({ className = "" }: { className?: string }) {
                   fontFamily: 'Playfair Display',
                   fontSize: '80px',
                   fontWeight: 900,
-                  color: 'rgba(255,255,255,0.07)',
+                  color: 'rgba(26,61,43,0.07)',
                   lineHeight: 1
                 }}
               >
@@ -159,7 +161,7 @@ export default function HowItWorks({ className = "" }: { className?: string }) {
                   fontFamily: 'Playfair Display',
                   fontSize: '22px',
                   fontWeight: 700,
-                  color: 'white',
+                  color: '#0F2419',
                   marginBottom: '12px'
                 }}
               >
@@ -173,7 +175,7 @@ export default function HowItWorks({ className = "" }: { className?: string }) {
                   fontFamily: 'Inter',
                   fontSize: '15px',
                   lineHeight: 1.7,
-                  color: 'rgba(255,255,255,0.6)'
+                  color: '#3D5A47'
                 }}
               >
                 {step.description}

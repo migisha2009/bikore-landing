@@ -18,16 +18,16 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FFFFFF] border-b border-[rgba(0,0,0,0.08)]">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-forest-dark/10 shadow-[0_1px_12px_rgba(0,0,0,0.06)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-dark-green rounded flex items-center justify-center">
+              <div className="w-8 h-8 bg-forest-dark rounded flex items-center justify-center">
                 <span className="text-white text-sm">🍃</span>
               </div>
-              <h1 className="text-[22px] font-serif text-[#1A3D2B]" style={{ fontWeight: 800 }}>
+              <h1 className="text-[22px] font-serif text-forest-dark" style={{ fontWeight: 800 }}>
                 Bikore
               </h1>
             </div>
@@ -39,12 +39,12 @@ export default function Navbar() {
               <span key={link.key}>
                 <a
                   href={`#${link.href}`}
-                  className="text-[#1A1A1A] text-[15px] hover:text-[#1A3D2B] transition-colors duration-200"
+                  className="text-text-secondary text-[15px] hover:text-forest-dark transition-colors duration-200 underline-offset-3 hover:underline"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
                   {t(link.key)}
                 </a>
-                {index < navLinks.length - 1 && <span className="text-[#1A1A1A] mx-2">·</span>}
+                {index < navLinks.length - 1 && <span className="text-text-secondary mx-2">·</span>}
               </span>
             ))}
             <LanguageToggle />
@@ -52,7 +52,7 @@ export default function Navbar() {
               href="#download"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="bg-[#1A4D2E] text-white rounded-full inline-block"
+              className="bg-forest-dark text-white rounded-full inline-block hover:bg-forest-mid transition-colors"
               style={{ 
                 borderRadius: '999px', 
                 padding: '10px 24px', 
@@ -73,7 +73,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-[#1A3D2B] p-2"
+              className="text-forest-dark p-2"
             >
               <div className="w-6 h-0.5 bg-current mb-1.5"></div>
               <div className="w-6 h-0.5 bg-current mb-1.5"></div>
@@ -97,7 +97,7 @@ export default function Navbar() {
                   <a
                     key={link.key}
                     href={`#${link.href}`}
-                    className="block py-2 text-[#1A1A1A] hover:text-[#1A3D2B] transition-colors duration-200"
+                    className="block py-2 text-text-secondary hover:text-forest-dark transition-colors duration-200"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -111,7 +111,7 @@ export default function Navbar() {
                   href="#download"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="w-full bg-[#1A4D2E] text-white rounded-full mt-4 inline-block"
+                  className="w-full bg-forest-dark text-white rounded-full mt-4 inline-block hover:bg-forest-mid transition-colors"
                   style={{ 
                     borderRadius: '999px', 
                     fontWeight: 600,

@@ -4,16 +4,20 @@
 @import "@fontsource/playfair-display";
 
 :root {
-  --color-bg-darkest: #0A2416;
-  --color-bg-dark: #0D2B1A;
-  --color-bg-mid: #1A4D2E;
-  --color-bg-light: #2D7A3A;
-  --color-green-bright: #5BAD5B;
-  --color-gold: #F5C518;
-  --color-cream: #F2EFE4;
-  --color-text-primary: #FFFFFF;
-  --color-text-muted: rgba(255,255,255,0.65);
-  --color-text-pale: #B8E08D;
+  --color-bg-primary: #F4F0E6;
+  --color-bg-secondary: #EDE8DA;
+  --color-bg-tertiary: #E4DDD0;
+  --color-forest-darkest: #0F2419;
+  --color-forest-dark: #1A3D2B;
+  --color-forest-mid: #2D6A3F;
+  --color-forest-light: #4A9A5C;
+  --color-forest-pale: #C8E6C9;
+  --color-gold: #C9A84C;
+  --color-gold-light: #F0D080;
+  --color-white: #FFFFFF;
+  --color-text-primary: #1A3D2B;
+  --color-text-secondary: #3D5A47;
+  --color-text-muted: #6B8C75;
 }
 
 html {
@@ -25,7 +29,7 @@ html {
 }
 
 body {
-  background: var(--color-bg-darkest);
+  background: #F4F0E6;
   font-family: 'Inter', sans-serif;
-  color: var(--color-text-primary);
+  color: #1A3D2B;
 }

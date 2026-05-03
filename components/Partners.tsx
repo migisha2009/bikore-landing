@@ -63,14 +63,14 @@ const duplicatedSecondRow = [...secondRowPartners, ...secondRowPartners]
 const Partners = () => {
   return (
     <>
-      <div className="relative bg-[#0A2416] py-12 overflow-hidden border-t border-b border-[rgba(255,255,255,0.06)]">
+      <div className="relative bg-[#EDE8DA] py-12 overflow-hidden border-t border-b border-forest-mid/8">
         {/* Fade edges */}
-        <div className="absolute top-0 bottom-0 left-0 w-[120px] z-10 pointer-events-none bg-gradient-to-r from-[#0A2416] to-transparent" />
-        <div className="absolute top-0 bottom-0 right-0 w-[120px] z-10 pointer-events-none bg-gradient-to-l from-[#0A2416] to-transparent" />
+        <div className="absolute top-0 bottom-0 left-0 w-[120px] z-10 pointer-events-none bg-gradient-to-r from-[#EDE8DA] to-transparent" />
+        <div className="absolute top-0 bottom-0 right-0 w-[120px] z-10 pointer-events-none bg-gradient-to-l from-[#EDE8DA] to-transparent" />
         
         {/* Header */}
         <div className="text-center mb-8 px-20">
-          <p className="text-[rgba(255,255,255,0.3)] text-[11px] font-medium tracking-[0.15em] uppercase">
+          <p className="text-forest-mid/35 text-[11px] font-medium tracking-[0.15em] uppercase">
             TRUSTED PARTNERS & INTEGRATIONS
           </p>
         </div>
@@ -81,7 +81,7 @@ const Partners = () => {
             {duplicatedPartners.map((partner, index) => (
               <div
                 key={`${partner.id}-${index}`}
-                className="inline-flex flex-row items-center gap-[14px] bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] rounded-2xl px-7 py-4 mx-3 flex-shrink-0 whitespace-nowrap hover:bg-[rgba(255,255,255,0.09)] hover:border-[rgba(255,255,255,0.15)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                className="inline-flex flex-row items-center gap-[14px] bg-white border border-forest-mid/10 rounded-2xl px-7 py-4 mx-3 flex-shrink-0 whitespace-nowrap hover:bg-white hover:border-forest-mid/20 hover:-translate-y-0.5 transition-all duration-200 cursor-default"
               >
                 {/* Logo icon circle */}
                 <div
@@ -101,10 +101,10 @@ const Partners = () => {
                 
                 {/* Text block */}
                 <div>
-                  <div className="text-white text-[15px] font-semibold leading-tight mb-[2px]">
+                  <div className="text-forest-dark text-[15px] font-semibold leading-tight mb-[2px]">
                     {partner.name}
                   </div>
-                  <div className="text-[rgba(255,255,255,0.4)] text-[12px]">
+                  <div className="text-muted text-[12px]">
                     {partner.tagline}
                   </div>
                 </div>
@@ -114,9 +114,9 @@ const Partners = () => {
                   <span
                     className="text-[10px] font-semibold px-2 py-0.5 rounded-full ml-2 tracking-[0.05em]"
                     style={{
-                      background: 'rgba(91,173,91,0.15)',
-                      border: '1px solid rgba(91,173,91,0.3)',
-                      color: '#B8E08D'
+                      background: 'rgba(45,106,63,0.1)',
+                      border: '1px solid rgba(45,106,63,0.2)',
+                      color: '#2D6A3F'
                     }}
                   >
                     ✓ Regulated
@@ -136,7 +136,7 @@ const Partners = () => {
             {duplicatedSecondRow.map((partner, index) => (
               <div
                 key={`${partner.id}-second-${index}`}
-                className="inline-flex flex-row items-center gap-[14px] bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] rounded-2xl px-7 py-4 mx-3 flex-shrink-0 whitespace-nowrap hover:bg-[rgba(255,255,255,0.09)] hover:border-[rgba(255,255,255,0.15)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                className="inline-flex flex-row items-center gap-[14px] bg-white border border-forest-mid/10 rounded-2xl px-7 py-4 mx-3 flex-shrink-0 whitespace-nowrap hover:bg-white hover:border-forest-mid/20 hover:-translate-y-0.5 transition-all duration-200 cursor-default"
               >
                 {/* Logo icon circle */}
                 <div
@@ -156,10 +156,10 @@ const Partners = () => {
                 
                 {/* Text block */}
                 <div>
-                  <div className="text-white text-[15px] font-semibold leading-tight mb-[2px]">
+                  <div className="text-forest-dark text-[15px] font-semibold leading-tight mb-[2px]">
                     {partner.name}
                   </div>
-                  <div className="text-[rgba(255,255,255,0.4)] text-[12px]">
+                  <div className="text-muted text-[12px]">
                     {partner.tagline}
                   </div>
                 </div>
@@ -169,9 +169,9 @@ const Partners = () => {
                   <span
                     className="text-[10px] font-semibold px-2 py-0.5 rounded-full ml-2 tracking-[0.05em]"
                     style={{
-                      background: 'rgba(91,173,91,0.15)',
-                      border: '1px solid rgba(91,173,91,0.3)',
-                      color: '#B8E08D'
+                      background: 'rgba(45,106,63,0.1)',
+                      border: '1px solid rgba(45,106,63,0.2)',
+                      color: '#2D6A3F'
                     }}
                   >
                     ✓ Regulated
@@ -185,31 +185,31 @@ const Partners = () => {
         {/* Bottom trust line */}
         <div className="flex items-center justify-center gap-6 mt-7 px-20">
           <div className="flex items-center gap-1.5">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#5BAD5B]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-forest-mid">
               <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" opacity="0.2"/>
               <path d="M9 12L11 14L15 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <span className="text-[rgba(255,255,255,0.5)] text-[13px]">BNR Regulated</span>
+            <span className="text-muted text-[13px]">BNR Regulated</span>
           </div>
           
-          <span className="text-[rgba(255,255,255,0.2)]">·</span>
+          <span className="text-forest-mid/20">·</span>
           
           <div className="flex items-center gap-1.5">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#5BAD5B]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-forest-mid">
               <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.2"/>
               <path d="M7 11V7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7V11" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
               <path d="M12 16C12.5523 16 13 15.5523 13 15C13 14.4477 12.5523 14 12 14C11.4477 14 11 14.4477 11 15C11 15.5523 11.4477 16 12 16Z" fill="currentColor"/>
             </svg>
-            <span className="text-[rgba(255,255,255,0.5)] text-[13px]">256-bit Encryption</span>
+            <span className="text-muted text-[13px]">256-bit Encryption</span>
           </div>
           
-          <span className="text-[rgba(255,255,255,0.2)]">·</span>
+          <span className="text-forest-mid/20">·</span>
           
           <div className="flex items-center gap-1.5">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#5BAD5B]">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-forest-mid">
               <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <span className="text-[rgba(255,255,255,0.5)] text-[13px]">Licensed & Insured</span>
+            <span className="text-muted text-[13px]">Licensed & Insured</span>
           </div>
         </div>
       </div>

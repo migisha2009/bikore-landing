@@ -39,19 +39,19 @@ export default function Contact() {
   const contactCards = [
     {
       icon: '📞',
-      iconBg: 'rgba(91,173,91,0.15)',
+      iconBg: 'rgba(45,106,63,0.12)',
       title: 'Call us',
       lines: ['+250 782 722 112', '+250 782 526 295'],
       href: 'tel:+250782722112',
-      color: '#B8E08D'
+      color: '#2D6A3F'
     },
     {
       icon: '✉️',
-      iconBg: 'rgba(245,197,24,0.15)',
+      iconBg: 'rgba(201,168,76,0.12)',
       title: 'Email us',
       lines: ['bikore@gmail.com', 'Reply within 24 hours'],
       href: 'mailto:bikore@gmail.com',
-      color: '#B8E08D'
+      color: '#2D6A3F'
     },
     {
       icon: 'whatsapp',
@@ -59,7 +59,7 @@ export default function Contact() {
       title: 'WhatsApp',
       lines: ['Chat with our team', 'Usually replies in minutes'],
       href: 'https://wa.me/250782722112',
-      color: '#B8E08D'
+      color: '#2D6A3F'
     }
   ]
 
@@ -67,7 +67,7 @@ export default function Contact() {
     <section 
       id="contact" 
       className="py-20"
-      style={{ background: '#0A2416' }}
+      style={{ background: '#FFFFFF' }}
       ref={ref}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,7 +89,7 @@ export default function Contact() {
             >
               <p 
                 className="text-xs font-semibold tracking-wider uppercase mb-4"
-                style={{ color: '#5BAD5B', letterSpacing: '0.1em' }}
+                style={{ color: '#2D6A3F', letterSpacing: '0.1em' }}
               >
                 {t('contact.label')}
               </p>
@@ -103,12 +103,12 @@ export default function Contact() {
               viewport={{ once: true }}
             >
               <h1 
-                className="font-serif text-5xl md:text-6xl font-black text-white leading-tight mb-6"
+                className="font-serif text-5xl md:text-6xl font-black text-forest-darkest leading-tight mb-6"
                 style={{ fontFamily: 'Playfair Display' }}
               >
                 {t('contact.heading')}<br />
                 {t('contact.headingHighlight')}{' '}
-                <span className="italic" style={{ color: '#F5C518' }}>
+                <span className="italic" style={{ color: '#C9A84C' }}>
                   {t('contact.headingEnd')}
                 </span>
               </h1>
@@ -122,7 +122,7 @@ export default function Contact() {
               viewport={{ once: true }}
               className="text-lg mb-8"
               style={{ 
-                color: 'rgba(255,255,255,0.6)',
+                color: '#3D5A47',
                 fontFamily: 'Inter, sans-serif'
               }}
             >
@@ -142,14 +142,15 @@ export default function Contact() {
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ 
-                    background: 'rgba(255,255,255,0.08)',
-                    borderColor: 'rgba(91,173,91,0.3)',
-                    transform: 'translateX(4px)'
+                    background: 'rgba(26,61,43,0.06)',
+                    borderColor: 'rgba(26,61,43,0.25)',
+                    transform: 'translateX(4px)',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.06)'
                   }}
                   className="flex items-center gap-4 p-4 rounded-2xl border transition-all duration-200 cursor-pointer"
                   style={{
-                    background: 'rgba(255,255,255,0.05)',
-                    borderColor: 'rgba(255,255,255,0.1)'
+                    background: '#F4F0E6',
+                    borderColor: 'rgba(26,61,43,0.1)'
                   }}
                 >
                   {/* Icon Circle */}
@@ -189,7 +190,7 @@ export default function Contact() {
 
                   {/* Text Content */}
                   <div>
-                    <div className="text-white font-semibold text-sm mb-1">
+                    <div className="text-forest-darkest font-semibold text-sm mb-1">
                       {card.title}
                     </div>
                     <div className="text-sm" style={{ color: card.color }}>
@@ -197,7 +198,7 @@ export default function Contact() {
                     </div>
                     <div 
                       className="text-xs italic mt-0.5"
-                      style={{ color: 'rgba(255,255,255,0.4)' }}
+                      style={{ color: 'rgba(26,61,43,0.4)' }}
                     >
                       {card.lines[1]}
                     </div>
@@ -217,8 +218,9 @@ export default function Contact() {
             <div 
               className="rounded-3xl p-8"
               style={{
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)'
+                background: '#F4F0E6',
+                border: '1px solid rgba(26,61,43,0.1)',
+                borderRadius: '24px'
               }}
             >
               {!isSubmitted ? (
@@ -238,7 +240,7 @@ export default function Contact() {
                     <div className="mb-4">
                       <label 
                         className="block text-sm font-medium mb-1.5"
-                        style={{ color: 'white' }}
+                        style={{ color: '#1A3D2B', fontWeight: 500 }}
                       >
                         Full name
                       </label>
@@ -251,17 +253,19 @@ export default function Contact() {
                         required
                         className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none"
                         style={{
-                          background: 'rgba(255,255,255,0.06)',
-                          border: '1px solid rgba(255,255,255,0.12)',
-                          color: 'white'
+                          background: '#FFFFFF',
+                          border: '1px solid rgba(26,61,43,0.15)',
+                          color: '#0F2419'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#5BAD5B'
-                          e.target.style.background = 'rgba(255,255,255,0.09)'
+                          e.target.style.borderColor = '#2D6A3F'
+                          e.target.style.background = '#FFFFFF'
+                          e.target.style.boxShadow = '0 0 0 3px rgba(45,106,63,0.1)'
                         }}
                         onBlur={(e) => {
-                          e.target.style.borderColor = 'rgba(255,255,255,0.12)'
-                          e.target.style.background = 'rgba(255,255,255,0.06)'
+                          e.target.style.borderColor = 'rgba(26,61,43,0.15)'
+                          e.target.style.background = '#FFFFFF'
+                          e.target.style.boxShadow = 'none'
                         }}
                       />
                     </div>
@@ -270,7 +274,7 @@ export default function Contact() {
                     <div className="mb-4">
                       <label 
                         className="block text-sm font-medium mb-1.5"
-                        style={{ color: 'white' }}
+                        style={{ color: '#1A3D2B', fontWeight: 500 }}
                       >
                         Phone number
                       </label>
@@ -283,17 +287,19 @@ export default function Contact() {
                         required
                         className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none"
                         style={{
-                          background: 'rgba(255,255,255,0.06)',
-                          border: '1px solid rgba(255,255,255,0.12)',
-                          color: 'white'
+                          background: '#FFFFFF',
+                          border: '1px solid rgba(26,61,43,0.15)',
+                          color: '#0F2419'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#5BAD5B'
-                          e.target.style.background = 'rgba(255,255,255,0.09)'
+                          e.target.style.borderColor = '#2D6A3F'
+                          e.target.style.background = '#FFFFFF'
+                          e.target.style.boxShadow = '0 0 0 3px rgba(45,106,63,0.1)'
                         }}
                         onBlur={(e) => {
-                          e.target.style.borderColor = 'rgba(255,255,255,0.12)'
-                          e.target.style.background = 'rgba(255,255,255,0.06)'
+                          e.target.style.borderColor = 'rgba(26,61,43,0.15)'
+                          e.target.style.background = '#FFFFFF'
+                          e.target.style.boxShadow = 'none'
                         }}
                       />
                     </div>
@@ -302,7 +308,7 @@ export default function Contact() {
                     <div className="mb-4">
                       <label 
                         className="block text-sm font-medium mb-1.5"
-                        style={{ color: 'white' }}
+                        style={{ color: '#1A3D2B', fontWeight: 500 }}
                       >
                         Email (optional)
                       </label>
@@ -314,17 +320,19 @@ export default function Contact() {
                         placeholder="your@email.com"
                         className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none"
                         style={{
-                          background: 'rgba(255,255,255,0.06)',
-                          border: '1px solid rgba(255,255,255,0.12)',
-                          color: 'white'
+                          background: '#FFFFFF',
+                          border: '1px solid rgba(26,61,43,0.15)',
+                          color: '#0F2419'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#5BAD5B'
-                          e.target.style.background = 'rgba(255,255,255,0.09)'
+                          e.target.style.borderColor = '#2D6A3F'
+                          e.target.style.background = '#FFFFFF'
+                          e.target.style.boxShadow = '0 0 0 3px rgba(45,106,63,0.1)'
                         }}
                         onBlur={(e) => {
-                          e.target.style.borderColor = 'rgba(255,255,255,0.12)'
-                          e.target.style.background = 'rgba(255,255,255,0.06)'
+                          e.target.style.borderColor = 'rgba(26,61,43,0.15)'
+                          e.target.style.background = '#FFFFFF'
+                          e.target.style.boxShadow = 'none'
                         }}
                       />
                     </div>
@@ -333,7 +341,7 @@ export default function Contact() {
                     <div className="mb-6">
                       <label 
                         className="block text-sm font-medium mb-1.5"
-                        style={{ color: 'white' }}
+                        style={{ color: '#1A3D2B', fontWeight: 500 }}
                       >
                         Message
                       </label>
@@ -346,17 +354,19 @@ export default function Contact() {
                         required
                         className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none resize-none"
                         style={{
-                          background: 'rgba(255,255,255,0.06)',
-                          border: '1px solid rgba(255,255,255,0.12)',
-                          color: 'white'
+                          background: '#FFFFFF',
+                          border: '1px solid rgba(26,61,43,0.15)',
+                          color: '#0F2419'
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = '#5BAD5B'
-                          e.target.style.background = 'rgba(255,255,255,0.09)'
+                          e.target.style.borderColor = '#2D6A3F'
+                          e.target.style.background = '#FFFFFF'
+                          e.target.style.boxShadow = '0 0 0 3px rgba(45,106,63,0.1)'
                         }}
                         onBlur={(e) => {
-                          e.target.style.borderColor = 'rgba(255,255,255,0.12)'
-                          e.target.style.background = 'rgba(255,255,255,0.06)'
+                          e.target.style.borderColor = 'rgba(26,61,43,0.15)'
+                          e.target.style.background = '#FFFFFF'
+                          e.target.style.boxShadow = 'none'
                         }}
                       />
                     </div>
@@ -366,16 +376,16 @@ export default function Contact() {
                       type="submit"
                       className="w-full py-3.5 rounded-xl font-semibold text-base transition-all duration-200 cursor-pointer"
                       style={{
-                        background: '#5BAD5B',
+                        background: '#2D6A3F',
                         color: 'white',
                         border: 'none'
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.background = '#4A9A4A'
+                        e.currentTarget.style.background = '#1A3D2B'
                         e.currentTarget.style.transform = 'scale(1.01)'
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = '#5BAD5B'
+                        e.currentTarget.style.background = '#2D6A3F'
                         e.currentTarget.style.transform = 'scale(1)'
                       }}
                       onMouseDown={(e) => {
@@ -402,7 +412,7 @@ export default function Contact() {
                   >
                     Message sent!
                   </h3>
-                  <p style={{ color: '#B8E08D' }}>
+                  <p style={{ color: '#2D6A3F' }}>
                     We'll get back to you within 24 hours.
                   </p>
                 </div>

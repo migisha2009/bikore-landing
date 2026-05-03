@@ -12,7 +12,7 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex gap-1">
       {[...Array(5)].map((_, i) => (
-        <span key={i} className="text-lg" style={{ color: '#F5C518' }}>
+        <span key={i} className="text-lg" style={{ color: '#C9A84C' }}>
           {i < rating ? "★" : "☆"}
         </span>
       ))}
@@ -58,7 +58,7 @@ export default function Testimonials({ className = "" }: { className?: string })
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-forest-darkest">
             Stories from our community
           </h2>
         </motion.div>
@@ -78,28 +78,28 @@ export default function Testimonials({ className = "" }: { className?: string })
               }}
               className="rounded-2xl p-7 transition-colors duration-300"
               style={{
-                background: 'rgba(0,0,0,0.2)',
-                border: '1px solid rgba(255,255,255,0.12)'
+                background: '#F4F0E6',
+                border: '1px solid rgba(26,61,43,0.1)'
               }}
             >
               {/* Avatar and Name */}
               <div className="flex items-center mb-4">
                 <div 
                   className="w-12 h-12 rounded-full flex items-center justify-center mr-3"
-                  style={{ background: '#F5C518' }}
+                  style={{ background: '#C9A84C' }}
                 >
                   <span 
                     className="font-bold text-lg"
-                    style={{ color: '#0D2B1A' }}
+                    style={{ color: '#0F2419' }}
                   >
                     {testimonial.initials}
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-sans font-semibold text-white">
+                  <h3 className="font-sans font-semibold text-forest-darkest">
                     {testimonial.name}
                   </h3>
-                  <p className="text-sm" style={{ color: '#B8E08D' }}>
+                  <p className="text-sm" style={{ color: '#6B8C75' }}>
                     {testimonial.location}
                   </p>
                 </div>
@@ -113,7 +113,7 @@ export default function Testimonials({ className = "" }: { className?: string })
               {/* Quote */}
               <blockquote 
                 className="leading-relaxed"
-                style={{ color: 'rgba(255,255,255,0.8)' }}
+                style={{ color: '#3D5A47' }}
               >
                 "{testimonial.quote}"
               </blockquote>

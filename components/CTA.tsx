@@ -14,8 +14,8 @@ export default function CTA({ className = "" }: { className?: string }) {
       id="download" 
       className={`py-20 bg-section-cta ${className}`} 
       style={{
-        background: '#0D2B1A',
-        backgroundImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(45,122,58,0.25) 0%, transparent 70%)'
+        background: '#1A3D2B',
+        backgroundImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(26,61,43,0.4) 0%, transparent 70%)'
       }}
       ref={ref}
     >
@@ -50,7 +50,7 @@ export default function CTA({ className = "" }: { className?: string }) {
           className="mb-12"
         >
           <p className="font-sans text-lg text-center max-w-md mx-auto"
-             style={{ color: 'rgba(255,255,255,0.65)' }}
+             style={{ color: 'rgba(255,255,255,0.7)' }}
           >
             {t('cta.subtitle')}
           </p>
@@ -67,13 +67,13 @@ export default function CTA({ className = "" }: { className?: string }) {
           <motion.button
             whileHover={{ 
               scale: 1.03,
-              background: 'rgba(255,255,255,0.18)'
+              background: 'rgba(255,255,255,0.2)'
             }}
             whileTap={{ scale: 0.98 }}
             className="flex items-center gap-4 px-7 py-4 rounded-2xl backdrop-blur-lg transition-all duration-200"
             style={{
-              background: 'rgba(255,255,255,0.1)',
-              border: '1px solid rgba(255,255,255,0.2)'
+              background: 'rgba(255,255,255,0.12)',
+              border: '1px solid rgba(255,255,255,0.25)'
             }}
           >
             {/* Apple Logo SVG */}
@@ -108,13 +108,13 @@ export default function CTA({ className = "" }: { className?: string }) {
           <motion.button
             whileHover={{ 
               scale: 1.03,
-              background: 'rgba(255,255,255,0.18)'
+              background: 'rgba(255,255,255,0.2)'
             }}
             whileTap={{ scale: 0.98 }}
             className="flex items-center gap-4 px-7 py-4 rounded-2xl backdrop-blur-lg transition-all duration-200"
             style={{
-              background: 'rgba(255,255,255,0.1)',
-              border: '1px solid rgba(255,255,255,0.2)'
+              background: 'rgba(255,255,255,0.12)',
+              border: '1px solid rgba(255,255,255,0.25)'
             }}
           >
             {/* Google Play Logo SVG */}

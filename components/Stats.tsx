@@ -133,7 +133,7 @@ export default function Stats({ className = "" }: { className?: string }) {
       id="stats" 
       className={`${className}`}
       style={{ 
-        background: '#0A2416', 
+        background: '#1A3D2B', 
         padding: '60px 80px' 
       }}
       ref={ref}
@@ -174,7 +174,7 @@ export default function Stats({ className = "" }: { className?: string }) {
                           fontFamily: 'Playfair Display',
                           fontSize: 'clamp(36px, 4vw, 56px)',
                           fontWeight: 900,
-                          color: '#F5C518',
+                          color: '#C9A84C',
                           lineHeight: 1,
                           marginLeft: '-8px'
                         }}
@@ -200,7 +200,7 @@ export default function Stats({ className = "" }: { className?: string }) {
                               fontFamily: 'Playfair Display',
                               fontSize: 'clamp(32px, 3.5vw, 52px)',
                               fontWeight: 900,
-                              color: '#B8E08D',
+                              color: '#C8E6C9',
                               lineHeight: 1,
                               marginLeft: '-8px',
                               whiteSpace: 'nowrap'
@@ -241,7 +241,7 @@ export default function Stats({ className = "" }: { className?: string }) {
                     fontFamily: 'Inter',
                     fontSize: '15px',
                     fontWeight: 500,
-                    color: '#5BAD5B',
+                    color: '#C8E6C9',
                     letterSpacing: '0.02em',
                     marginTop: '12px'
                   }}
@@ -266,7 +266,7 @@ export default function Stats({ className = "" }: { className?: string }) {
                   className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2"
                   style={{ 
                     width: '1px',
-                    background: 'rgba(255,255,255,0.1)',
+                    background: 'rgba(255,255,255,0.15)',
                     height: '80px',
                     alignSelf: 'center'
                   }} 

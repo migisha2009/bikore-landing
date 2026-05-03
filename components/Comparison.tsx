@@ -92,7 +92,7 @@ export default function Comparison() {
     <section 
       id="comparison" 
       className="py-20 relative"
-      style={{ background: '#0D2B1A', padding: '100px 80px' }}
+      style={{ background: '#F4F0E6', padding: '100px 80px' }}
       ref={ref}
     >
       {/* Radial Glow Effect */}
@@ -104,7 +104,7 @@ export default function Comparison() {
           transform: 'translate(-50%, -50%)',
           width: '800px',
           height: '600px',
-          background: 'radial-gradient(circle, rgba(45,122,58,0.15) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(26,61,43,0.08) 0%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 0
         }}
@@ -122,7 +122,7 @@ export default function Comparison() {
           <div 
             className="flex items-center gap-2 mb-3"
             style={{ 
-              color: '#5BAD5B',
+              color: '#2D6A3F',
               fontSize: '14px',
               fontWeight: 600,
               letterSpacing: '0.12em',
@@ -134,7 +134,7 @@ export default function Comparison() {
               style={{
                 width: '40px',
                 height: '2px',
-                backgroundColor: '#5BAD5B'
+                backgroundColor: '#2D6A3F'
               }}
             />
           </div>
@@ -149,13 +149,13 @@ export default function Comparison() {
               marginBottom: '12px'
             }}
           >
-            Why switch to <span className="italic" style={{ color: '#F5C518' }}>Bikore</span>?
+            Why switch to <span className="italic" style={{ color: '#C9A84C' }}>Bikore</span>?
           </h2>
 
           {/* Subtext */}
           <p 
             style={{ 
-              color: 'rgba(255,255,255,0.65)',
+              color: '#3D5A47',
               fontFamily: 'Inter, sans-serif',
               fontSize: '18px',
               maxWidth: '520px',
@@ -172,11 +172,11 @@ export default function Comparison() {
           {/* Table Wrapper */}
           <div
             style={{
-              background: 'rgba(255,255,255,0.03)',
-              border: '1px solid rgba(255,255,255,0.1)',
+              background: '#FFFFFF',
+              border: '1px solid rgba(26,61,43,0.12)',
               borderRadius: '28px',
               overflow: 'hidden',
-              boxShadow: '0 32px 80px rgba(0,0,0,0.4)',
+              boxShadow: '0 8px 40px rgba(0,0,0,0.06)',
               position: 'relative',
               zIndex: 1
             }}
@@ -190,8 +190,8 @@ export default function Comparison() {
             >
               {/* Header Row */}
               <div style={{ 
-                background: 'rgba(255,255,255,0.02)', 
-                borderRight: '1px solid rgba(255,255,255,0.08)',
+                background: '#F4F0E6', 
+                borderRight: '1px solid rgba(26,61,43,0.08)',
                 padding: '32px 28px',
                 minHeight: '140px',
                 display: 'flex',
@@ -199,7 +199,7 @@ export default function Comparison() {
               }}>
                 <div 
                   style={{ 
-                    color: 'rgba(255,255,255,0.25)', 
+                    color: 'rgba(26,61,43,0.3)', 
                     fontSize: '11px', 
                     letterSpacing: '0.12em',
                     textTransform: 'uppercase',
@@ -211,9 +211,9 @@ export default function Comparison() {
               </div>
               
               <div style={{ 
-                background: 'rgba(255,255,255,0.04)', 
-                borderRight: '1px solid rgba(255,255,255,0.08)',
-                borderBottom: '2px solid rgba(255,255,255,0.12)',
+                background: '#F4F0E6', 
+                borderRight: '1px solid rgba(26,61,43,0.08)',
+                borderBottom: '2px solid rgba(26,61,43,0.15)',
                 padding: '32px 40px',
                 minHeight: '140px',
                 display: 'flex',
@@ -224,7 +224,7 @@ export default function Comparison() {
               }}>
                 <div style={{ fontSize: '40px' }}>🏺</div>
                 <h3 style={{ 
-                  color: 'white', 
+                  color: '#0F2419', 
                   fontFamily: 'Playfair Display', 
                   fontSize: '24px', 
                   fontWeight: 700,
@@ -234,7 +234,7 @@ export default function Comparison() {
                   Traditional Ikimina
                 </h3>
                 <p style={{ 
-                  color: 'rgba(255,255,255,0.4)', 
+                  color: '#6B8C75', 
                   fontFamily: 'Inter', 
                   fontSize: '14px',
                   margin: 0
@@ -244,8 +244,8 @@ export default function Comparison() {
               </div>
               
               <div style={{ 
-                background: 'linear-gradient(135deg, #1E5C35 0%, #1A4D2E 100%)', 
-                borderBottom: '2px solid #5BAD5B',
+                background: '#1A3D2B', 
+                borderBottom: '2px solid #4A9A5C',
                 padding: '32px 40px',
                 minHeight: '140px',
                 display: 'flex',
@@ -262,8 +262,8 @@ export default function Comparison() {
                     top: '0',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    background: '#F5C518',
-                    color: '#0A2416',
+                    background: '#C9A84C',
+                    color: '#0F2419',
                     fontSize: '11px',
                     fontWeight: 800,
                     letterSpacing: '0.1em',
@@ -288,7 +288,7 @@ export default function Comparison() {
                   Bikore
                 </h3>
                 <p style={{ 
-                  color: '#B8E08D', 
+                  color: '#C8E6C9', 
                   fontFamily: 'Inter', 
                   fontSize: '14px',
                   fontWeight: 500,
@@ -322,13 +322,13 @@ export default function Comparison() {
                   {/* Feature Label */}
                   <div 
                     style={{
-                      background: isHovered ? 'rgba(255,255,255,0.05)' : (index % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'transparent'),
-                      borderRight: '1px solid rgba(255,255,255,0.07)',
+                      background: isHovered ? 'rgba(26,61,43,0.04)' : (index % 2 === 0 ? 'rgba(26,61,43,0.02)' : 'transparent'),
+                      borderRight: '1px solid rgba(26,61,43,0.08)',
                       padding: '20px 28px',
                       minHeight: '64px',
                       fontSize: '15px',
                       fontWeight: 500,
-                      color: 'rgba(255,255,255,0.85)',
+                      color: '#1A3D2B',
                       fontFamily: 'Inter',
                       display: 'flex',
                       alignItems: 'center',
@@ -342,12 +342,12 @@ export default function Comparison() {
                   {/* Traditional Value */}
                   <div 
                     style={{
-                      background: isHovered ? 'rgba(255,255,255,0.05)' : (index % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'transparent'),
-                      borderRight: '1px solid rgba(255,255,255,0.07)',
+                      background: isHovered ? 'rgba(26,61,43,0.04)' : (index % 2 === 0 ? 'rgba(26,61,43,0.02)' : 'transparent'),
+                      borderRight: '1px solid rgba(26,61,43,0.08)',
                       padding: '20px 32px',
                       minHeight: '64px',
                       fontSize: '14px',
-                      color: 'rgba(255,255,255,0.5)',
+                      color: '#6B8C75',
                       fontFamily: 'Inter',
                       display: 'flex',
                       alignItems: 'center',
@@ -390,12 +390,12 @@ export default function Comparison() {
                   {/* Bikore Value */}
                   <div 
                     style={{
-                      background: isHovered ? 'rgba(26,77,46,0.5)' : 'rgba(26,77,46,0.35)',
-                      borderLeft: '2px solid rgba(91,173,91,0.2)',
+                      background: isHovered ? 'rgba(26,61,43,0.08)' : 'rgba(26,61,43,0.04)',
+                      borderLeft: '2px solid rgba(26,61,43,0.15)',
                       padding: '20px 32px',
                       minHeight: '64px',
                       fontSize: '14px',
-                      color: 'white',
+                      color: '#1A3D2B',
                       fontWeight: 500,
                       fontFamily: 'Inter',
                       display: 'flex',
@@ -412,8 +412,8 @@ export default function Comparison() {
                       width: '20px',
                       height: '20px',
                       borderRadius: '50%',
-                      background: 'rgba(91,173,91,0.25)',
-                      color: '#5BAD5B',
+                      background: 'rgba(45,106,63,0.25)',
+                      color: '#2D6A3F',
                       fontSize: '13px',
                       fontWeight: '700',
                       flexShrink: 0
@@ -441,15 +441,15 @@ export default function Comparison() {
                 ease: 'easeOut'
               }}
               style={{
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.08)',
+                background: '#FFFFFF',
+                border: '1px solid rgba(26,61,43,0.12)',
                 borderRadius: '16px',
                 padding: '18px 20px',
                 marginBottom: '10px'
               }}
             >
               <h4 style={{ 
-                color: 'white', 
+                color: '#0F2419', 
                 fontWeight: 600, 
                 fontSize: '15px',
                 marginBottom: '10px'
@@ -493,7 +493,7 @@ export default function Comparison() {
                   }}>⚠</span>
                 )}
                 <span style={{
-                  color: 'rgba(255,255,255,0.45)',
+                  color: '#6B8C75',
                   fontSize: '13px'
                 }}>
                   {row.traditional}
@@ -502,7 +502,7 @@ export default function Comparison() {
               
               {/* Divider */}
               <div style={{
-                borderTop: '1px solid rgba(255,255,255,0.06)',
+                borderTop: '1px solid rgba(26,61,43,0.06)',
                 margin: '10px 0'
               }} />
               
@@ -527,7 +527,7 @@ export default function Comparison() {
                   flexShrink: 0
                 }}>✓</span>
                 <span style={{
-                  color: 'white',
+                  color: '#1A3D2B',
                   fontSize: '13px',
                   fontWeight: 500
                 }}>
@@ -550,10 +550,9 @@ export default function Comparison() {
           <h3 
             className="font-serif font-bold mb-2"
             style={{ 
-              fontFamily: 'Playfair Display',
+              color: '#0F2419',
               fontSize: '36px',
               fontWeight: 800,
-              color: 'white',
               marginBottom: '8px'
             }}
           >
@@ -562,7 +561,7 @@ export default function Comparison() {
           
           <p 
             style={{ 
-              color: 'rgba(255,255,255,0.5)', 
+              color: '#6B8C75', 
               fontSize: '15px',
               marginBottom: '28px'
             }}
@@ -573,13 +572,13 @@ export default function Comparison() {
           <motion.button
             whileHover={{ 
               scale: 1.03, 
-              background: 'linear-gradient(135deg, #4A9A4A, #3D8A3D)',
+              background: '#1A3D2B',
               transform: 'translateY(-2px)',
-              boxShadow: '0 12px 40px rgba(91,173,91,0.5)'
+              boxShadow: '0 12px 40px rgba(45,106,63,0.5)'
             }}
             whileTap={{ scale: 0.98 }}
             style={{
-              background: 'linear-gradient(135deg, #5BAD5B, #4A9A4A)',
+              background: '#2D6A3F',
               color: 'white',
               border: 'none',
               borderRadius: '999px',
@@ -587,7 +586,7 @@ export default function Comparison() {
               fontSize: '17px',
               fontWeight: 700,
               cursor: 'pointer',
-              boxShadow: '0 8px 32px rgba(91,173,91,0.35)',
+              boxShadow: '0 8px 32px rgba(45,106,63,0.35)',
               transition: 'all 0.25s ease',
               marginBottom: '14px'
             }}
@@ -597,7 +596,7 @@ export default function Comparison() {
           
           <p 
             style={{ 
-              color: 'rgba(255,255,255,0.3)', 
+              color: 'rgba(26,61,43,0.3)', 
               fontSize: '13px',
               letterSpacing: '0.03em'
             }}

@@ -12,64 +12,64 @@ export default function Footer({ className = "" }: { className?: string }) {
           <div className="md:col-span-1">
             <div className="flex items-center mb-4">
               <span className="text-2xl mr-2">🍃</span>
-              <h3 className="text-2xl font-serif font-bold text-white">Bikore</h3>
+              <h3 className="text-2xl font-serif font-bold text-forest-darkest">Bikore</h3>
             </div>
             <p className="text-sm leading-relaxed"
-               style={{ color: 'rgba(255,255,255,0.5)' }}>
+               style={{ color: '#6B8C75' }}>
               Bringing Rwanda's trusted Ikimina tradition to your smartphone. Save together, grow together.
             </p>
           </div>
           
           {/* Product Links */}
           <div>
-            <h4 className="font-sans font-semibold text-white mb-4">Product</h4>
+            <h4 className="font-sans font-semibold text-forest-darkest mb-4">Product</h4>
             <ul className="space-y-2">
               <li>
                 <a 
                   href="#features" 
                   className="transition-colors duration-200 relative group"
-                  style={{ color: 'rgba(255,255,255,0.55)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
+                  style={{ color: '#6B8C75' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#6B8C75'}
                 >
                   Features
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-forest-darkest transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#how-it-works" 
                   className="transition-colors duration-200 relative group"
-                  style={{ color: 'rgba(255,255,255,0.55)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
+                  style={{ color: '#6B8C75' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#6B8C75'}
                 >
                   How It Works
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-forest-darkest transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#download" 
                   className="transition-colors duration-200 relative group"
-                  style={{ color: 'rgba(255,255,255,0.55)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
+                  style={{ color: '#6B8C75' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#6B8C75'}
                 >
                   Download
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-forest-darkest transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#" 
                   className="transition-colors duration-200 relative group"
-                  style={{ color: 'rgba(255,255,255,0.55)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
+                  style={{ color: '#6B8C75' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#6B8C75'}
                 >
                   Pricing
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-forest-darkest transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
             </ul>
@@ -77,54 +77,54 @@ export default function Footer({ className = "" }: { className?: string }) {
           
           {/* Company Links */}
           <div>
-            <h4 className="font-sans font-semibold text-white mb-4">Company</h4>
+            <h4 className="font-sans font-semibold text-forest-darkest mb-4">Company</h4>
             <ul className="space-y-2">
               <li>
                 <a 
                   href="#" 
                   className="transition-colors duration-200 relative group"
-                  style={{ color: 'rgba(255,255,255,0.55)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
+                  style={{ color: '#6B8C75' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#6B8C75'}
                 >
                   About Us
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-forest-darkest transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#" 
                   className="transition-colors duration-200 relative group"
-                  style={{ color: 'rgba(255,255,255,0.55)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
+                  style={{ color: '#6B8C75' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#6B8C75'}
                 >
                   Blog
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-forest-darkest transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#" 
                   className="transition-colors duration-200 relative group"
-                  style={{ color: 'rgba(255,255,255,0.55)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
+                  style={{ color: '#6B8C75' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#6B8C75'}
                 >
                   Careers
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-forest-darkest transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a 
                   href="#" 
                   className="transition-colors duration-200 relative group"
-                  style={{ color: 'rgba(255,255,255,0.55)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
+                  style={{ color: '#6B8C75' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#6B8C75'}
                 >
                   Contact
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-forest-darkest transition-all duration-200 group-hover:w-full"></span>
                 </a>
               </li>
             </ul>
@@ -132,15 +132,15 @@ export default function Footer({ className = "" }: { className?: string }) {
           
           {/* Contact Us */}
           <div>
-            <h4 className="font-sans font-semibold text-white mb-4">Get in touch</h4>
+            <h4 className="font-sans font-semibold text-forest-darkest mb-4">Get in touch</h4>
             
             {/* Phone Numbers */}
             <a 
               href="tel:+250782722112"
               className="flex items-center gap-2 mb-2 transition-colors duration-150"
-              style={{ color: 'rgba(255,255,255,0.6)' }}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-              onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
+              style={{ color: '#6B8C75' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#6B8C75'}
             >
               <span className="text-base">📞</span>
               <span className="text-sm">+250 782 722 112</span>
@@ -149,9 +149,9 @@ export default function Footer({ className = "" }: { className?: string }) {
             <a 
               href="tel:+250782526295"
               className="flex items-center gap-2 mb-2 transition-colors duration-150"
-              style={{ color: 'rgba(255,255,255,0.6)' }}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-              onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
+              style={{ color: '#6B8C75' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#6B8C75'}
             >
               <span className="text-base">📞</span>
               <span className="text-sm">+250 782 526 295</span>
@@ -161,9 +161,9 @@ export default function Footer({ className = "" }: { className?: string }) {
             <a 
               href="mailto:bikore@gmail.com"
               className="flex items-center gap-2 mb-2 transition-colors duration-150"
-              style={{ color: 'rgba(255,255,255,0.6)' }}
-              onMouseEnter={(e) => e.currentTarget.style.color = '#B8E08D'}
-              onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
+              style={{ color: '#6B8C75' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#2D6A3F'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#6B8C75'}
             >
               <span className="text-base">✉️</span>
               <span className="text-sm">bikore@gmail.com</span>
@@ -175,9 +175,9 @@ export default function Footer({ className = "" }: { className?: string }) {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 transition-colors duration-150"
-              style={{ color: '#B8E08D' }}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-              onMouseLeave={(e) => e.currentTarget.style.color = '#B8E08D'}
+              style={{ color: '#2D6A3F' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#2D6A3F'}
             >
               <svg viewBox="0 0 24 24" fill="#25D366" width="16" height="16">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967
@@ -207,7 +207,7 @@ export default function Footer({ className = "" }: { className?: string }) {
             </a>
             
             {/* Office Hours */}
-            <p className="text-xs mt-3" style={{ color: 'rgba(255,255,255,0.35)' }}>
+            <p className="text-xs mt-3" style={{ color: 'rgba(26,61,43,0.4)' }}>
               Mon – Fri · 8:00am – 6:00pm (CAT)
             </p>
           </div>
@@ -216,12 +216,12 @@ export default function Footer({ className = "" }: { className?: string }) {
         {/* Bottom Bar */}
         <div 
           className="pt-8"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+          style={{ borderTop: '1px solid rgba(26,61,43,0.1)' }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p 
               className="text-sm"
-              style={{ color: 'rgba(255,255,255,0.4)' }}
+              style={{ color: 'rgba(26,61,43,0.5)' }}
             >
               © 2026 Bikore. All rights reserved.
             </p>
@@ -229,22 +229,22 @@ export default function Footer({ className = "" }: { className?: string }) {
               <a 
                 href="#" 
                 className="transition-colors duration-200 relative group"
-                style={{ color: 'rgba(255,255,255,0.4)' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
+                style={{ color: 'rgba(26,61,43,0.5)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(26,61,43,0.5)'}
               >
                 Privacy Policy
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-forest-darkest transition-all duration-200 group-hover:w-full"></span>
               </a>
               <a 
                 href="#" 
                 className="transition-colors duration-200 relative group"
-                style={{ color: 'rgba(255,255,255,0.4)' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = 'white'}
-                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
+                style={{ color: 'rgba(26,61,43,0.5)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#1A3D2B'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(26,61,43,0.5)'}
               >
                 Terms of Service
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-forest-darkest transition-all duration-200 group-hover:w-full"></span>
               </a>
             </div>
           </div>

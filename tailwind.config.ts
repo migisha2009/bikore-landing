@@ -9,40 +9,53 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark Forest Green Color System
-        "bg-darkest": "#0A2416",
-        "bg-dark": "#0D2B1A", 
-        "bg-mid": "#1A4D2E",
-        "bg-light": "#2D7A3A",
-        "green-bright": "#5BAD5B",
-        "gold": "#F5C518",
-        "cream": "#F2EFE4",
-        "text-primary": "#FFFFFF",
-        "text-muted": "rgba(255,255,255,0.65)",
-        "text-pale": "#B8E08D",
+        // Light Mode Color System
+        bg: {
+          primary: "#F4F0E6",   // main page background — warm cream
+          secondary: "#EDE8DA", // slightly darker cream — cards, sections
+          tertiary: "#E4DDD0",  // borders, dividers
+        },
+        forest: {
+          darkest: "#0F2419",   // deepest text, headings
+          dark: "#1A3D2B",      // primary green — logo, buttons
+          mid: "#2D6A3F",       // hover states, accents
+          light: "#4A9A5C",     // icons, highlights
+          pale: "#C8E6C9",      // subtle backgrounds
+        },
+        gold: "#C9A84C",        // italic accent — "save"
+        goldLight: "#F0D080",   // gold hover
+        text: {
+          primary: "#1A3D2B",   // main text — dark forest
+          secondary: "#3D5A47", // body text
+          muted: "#6B8C75",     // placeholder, hints
+        },
         
         // Section backgrounds
-        "section-navbar": "#F2EFE4",
-        "section-hero": "#0D2B1A",
-        "section-features": "#0A2416",
-        "section-how": "#0D2B1A",
-        "section-stats": "#0A2416",
-        "section-testimonials": "#1A4D2E",
-        "section-cta": "#0D2B1A",
-        "section-footer": "#0A2416",
+        "section-navbar": "#FFFFFF",
+        "section-hero": "#F4F0E6",
+        "section-features": "#F4F0E6",
+        "section-how": "#FFFFFF",
+        "section-stats": "#1A3D2B",
+        "section-testimonials": "#FFFFFF",
+        "section-cta": "#1A3D2B",
+        "section-footer": "#0F2419",
+        "section-partners": "#EDE8DA",
+        "section-comparison": "#F4F0E6",
+        "section-demo": "#EDE8DA",
+        "section-contact": "#FFFFFF",
         
         // Legacy colors for compatibility
         "dark-green": "#1A3D2B",
-        "nav-bg": "#F2EFE4",
-        "nav-text": "#2A2A2A",
+        "nav-bg": "#FFFFFF",
+        "nav-text": "#3D5A47",
         "cta-green": "#2D6A3F",
-        "hero-center": "#1E5C35",
-        "hero-edges": "#0D2B1A",
-        "accent-yellow": "#F5C518",
-        "button-green": "#5CB85C",
+        "hero-center": "#F4F0E6",
+        "hero-edges": "#F4F0E6",
+        "accent-yellow": "#C9A84C",
+        "button-green": "#2D6A3F",
         "phone-bg": "#1C1C1E",
         "phone-border": "#3A3A3C",
-        "app-green": "#1A4D2E",
+        "app-green": "#1A3D2B",
         
         // Avatar colors
         "avatar-orange": "#FF6B35",
@@ -53,13 +66,13 @@ const config: Config = {
         
         // Primary color palette (for backward compatibility)
         primary: {
-          dark: "#0D2B1A",
-          DEFAULT: "#1A4D2E",
-          mid: "#2D7A3A",
-          light: "#5BAD5B",
-          pale: "#B8E08D",
+          dark: "#0F2419",
+          DEFAULT: "#1A3D2B",
+          mid: "#2D6A3F",
+          light: "#4A9A5C",
+          pale: "#C8E6C9",
         },
-        accent: "#F5C518",
+        accent: "#C9A84C",
         white: "#FFFFFF",
       },
       fontFamily: {
