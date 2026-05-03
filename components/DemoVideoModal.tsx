@@ -13,8 +13,8 @@ export default function DemoVideoModal({ isOpen, onClose }: DemoVideoModalProps)
   const { t } = useLanguage()
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
 
-  // YouTube video URL for Bikore demo with autoplay parameters
-  const videoUrl = "https://www.youtube.com/embed/ZGQ3VsD0KtE?autoplay=1&rel=0&modestbranding=1"
+  // YouTube video URL for Bikore demo with play button
+  const videoUrl = "https://www.youtube.com/embed/ZGQ3VsD0KtE?rel=0&modestbranding=1&showinfo=0"
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
@@ -77,6 +77,24 @@ export default function DemoVideoModal({ isOpen, onClose }: DemoVideoModalProps)
                 allowFullScreen
                 onLoad={handleVideoLoad}
               />
+              
+              {/* Custom Play Button Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-white bg-opacity-90 rounded-full flex items-center justify-center mb-4 shadow-2xl">
+                    <svg 
+                      className="w-8 h-8 text-green-600 ml-1" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                  <p className="text-white text-lg font-medium bg-black bg-opacity-50 px-4 py-2 rounded-lg">
+                    Click to play
+                  </p>
+                </div>
+              </div>
 
               {/* Video Overlay Info */}
               <div className="absolute bottom-4 left-4 right-4 bg-black bg-opacity-60 backdrop-blur-sm rounded-lg p-3">
