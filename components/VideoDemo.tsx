@@ -1,15 +1,13 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
-import DemoVideoModal from '@/components/DemoVideoModal'
 
 export default function VideoDemo() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const { t } = useLanguage()
-  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
 
   return (
     <section 
@@ -53,7 +51,7 @@ export default function VideoDemo() {
 
         {/* Video Preview Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Video Preview */}
+          {/* Left Side - Inline Video Player */}
           <motion.div
             initial={{ x: -40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -61,63 +59,16 @@ export default function VideoDemo() {
             viewport={{ once: true }}
           >
             <div className="relative">
-              {/* Video Thumbnail Container */}
-              <div 
-                className="relative aspect-video rounded-2xl overflow-hidden cursor-pointer group"
-                onClick={() => setIsDemoModalOpen(true)}
-              >
-                {/* Placeholder Background */}
-                <div 
-                  className="absolute inset-0 bg-gradient-to-br from-green-800 to-green-900"
-                  style={{
-                    backgroundImage: 'radial-gradient(circle at 30% 40%, rgba(91,173,91,0.3) 0%, transparent 50%)'
-                  }}
+              {/* Inline YouTube Video Player */}
+              <div className="relative aspect-video rounded-2xl overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/ZGQ3VsD0KtE?rel=0&modestbranding=1&showinfo=0"
+                  title="Bikore Demo Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
                 />
-                
-                {/* Video Preview Elements */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    {/* Play Button */}
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-24 h-24 bg-white bg-opacity-90 rounded-full flex items-center justify-center mb-6 shadow-2xl border-4 border-green-500"
-                    >
-                      <svg 
-                        className="w-10 h-10 text-green-600 ml-1" 
-                        fill="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </motion.div>
-                    
-                    {/* Video Title */}
-                    <h3 className="text-white text-2xl font-bold mb-2">
-                      Complete Bikore Demo
-                    </h3>
-                    <p className="text-gray-300 text-sm mb-4">
-                      2 minutes • Full Ikimina Experience
-                    </p>
-                    
-                    {/* Click Instruction */}
-                    <div className="bg-black bg-opacity-50 px-4 py-2 rounded-lg">
-                      <p className="text-white text-sm font-medium">
-                        Click to play video
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Hover Overlay */}
-                <div 
-                  className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300"
-                />
-                
-                {/* Video Duration Badge */}
-                <div className="absolute top-4 right-4 bg-black bg-opacity-60 backdrop-blur-sm rounded-full px-3 py-1">
-                  <span className="text-white text-sm font-medium">2:00</span>
-                </div>
               </div>
 
               {/* Video Features Below */}
@@ -212,21 +163,6 @@ export default function VideoDemo() {
                 </div>
               </div>
             </div>
-
-            {/* CTA Button */}
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setIsDemoModalOpen(true)}
-              className="w-full mt-8 bg-green-500 hover:bg-green-600 text-white rounded-xl py-4 px-6 font-semibold text-lg transition-all duration-200 shadow-lg"
-            >
-              <span className="flex items-center justify-center gap-2">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-                Watch Full Demo
-              </span>
-            </motion.button>
           </motion.div>
         </div>
 
@@ -252,12 +188,6 @@ export default function VideoDemo() {
           </div>
         </motion.div>
       </div>
-
-      {/* Demo Video Modal */}
-      <DemoVideoModal 
-        isOpen={isDemoModalOpen} 
-        onClose={() => setIsDemoModalOpen(false)} 
-      />
     </section>
   )
 }
