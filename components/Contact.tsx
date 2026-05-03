@@ -248,7 +248,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Amina Uwimana"
-                        required
+                        // required
                         className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none"
                         style={{
                           background: 'rgba(255,255,255,0.06)',
@@ -280,7 +280,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="+250 7XX XXX XXX"
-                        required
+                        // required
                         className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none"
                         style={{
                           background: 'rgba(255,255,255,0.06)',
@@ -343,7 +343,7 @@ export default function Contact() {
                         onChange={handleInputChange}
                         placeholder="I have a question about..."
                         rows={4}
-                        required
+                        // required
                         className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none resize-none"
                         style={{
                           background: 'rgba(255,255,255,0.06)',
