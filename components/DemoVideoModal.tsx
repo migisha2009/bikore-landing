@@ -13,8 +13,8 @@ export default function DemoVideoModal({ isOpen, onClose }: DemoVideoModalProps)
   const { t } = useLanguage()
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
 
-  // YouTube video URL for Bikore demo
-  const videoUrl = "https://www.youtube.com/embed/ZGQ3VsD0KtE"
+  // YouTube video URL for Bikore demo with autoplay parameters
+  const videoUrl = "https://www.youtube.com/embed/ZGQ3VsD0KtE?autoplay=1&rel=0&modestbranding=1"
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
@@ -68,15 +68,6 @@ export default function DemoVideoModal({ isOpen, onClose }: DemoVideoModalProps)
 
             {/* Video Container */}
             <div className="relative aspect-video bg-black">
-              {!isVideoLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-white text-lg">Loading demo video...</p>
-                  </div>
-                </div>
-              )}
-              
               <iframe
                 className="w-full h-full"
                 src={videoUrl}
@@ -85,7 +76,6 @@ export default function DemoVideoModal({ isOpen, onClose }: DemoVideoModalProps)
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 onLoad={handleVideoLoad}
-                style={{ display: isVideoLoaded ? 'block' : 'none' }}
               />
 
               {/* Video Overlay Info */}
