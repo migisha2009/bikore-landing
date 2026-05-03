@@ -11,7 +11,8 @@ export default function Navbar() {
     "How it works", 
     "Features",
     "Stories",
-    "Download"
+    "Download",
+    "Contact"
   ];
 
   return (
@@ -44,6 +45,18 @@ export default function Navbar() {
                 {index < navLinks.length - 1 && <span className="text-[#1A1A1A] mx-2">·</span>}
               </span>
             ))}
+            <a
+              href="#contact"
+              className="text-sm transition-colors duration-200 mr-4"
+              style={{ 
+                color: 'rgba(0,0,0,0.5)',
+                fontFamily: 'Inter, sans-serif'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#1A4D2E'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(0,0,0,0.5)'}
+            >
+              📞 Contact
+            </a>
             <motion.a
               href="#download"
               whileHover={{ scale: 1.03 }}

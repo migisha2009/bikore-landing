@@ -8,6 +8,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import QRDownloadWidget from "@/components/QRDownloadWidget";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -86,6 +87,8 @@ export default function Home() {
       <Testimonials className="border-t border-[rgba(255,255,255,0.08)]" />
       
       <CTA className="border-t border-[rgba(255,255,255,0.08)]" />
+      
+      <Contact />
       
       <Footer className="border-t border-[rgba(255,255,255,0.08)]" />
 
