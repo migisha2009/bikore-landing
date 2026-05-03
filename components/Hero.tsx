@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import DemoVideoModal from "@/components/DemoVideoModal";
 
 // Phone Frame Component - Exact specifications from reference
 function PhoneFrame({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -49,6 +50,7 @@ function PhoneFrame({ children, className = "" }: { children: React.ReactNode; c
 
 export default function Hero() {
   const [isHovered, setIsHovered] = useState(false);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const { t } = useLanguage();
 
   return (
@@ -161,7 +163,7 @@ export default function Hero() {
               <motion.button
                 whileHover={{ scale: 1.03, backgroundColor: "rgba(255,255,255,0.1)" }}
                 whileTap={{ scale: 0.97 }}
-                className="text-white rounded-full"
+                className="text-white rounded-full flex items-center gap-2"
                 style={{
                   background: 'transparent',
                   color: 'white',
@@ -170,8 +172,16 @@ export default function Hero() {
                   padding: '14px 28px',
                   fontSize: '16px'
                 }}
+                onClick={() => setIsDemoModalOpen(true)}
               >
-                See the app →
+                <svg 
+                  className="w-5 h-5" 
+                  fill="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                Watch 60-second demo →
               </motion.button>
             </motion.div>
 
@@ -560,6 +570,7 @@ export default function Hero() {
                       <div style={{ fontSize: '10px', opacity: 0.8, marginBottom: '4px' }}>Aug 1</div>
                       <div style={{ fontSize: '12px', fontWeight: 'bold' }}>YOUR TURN</div>
                     </div>
+                    </div>
                   </div>
                 </div>
               </PhoneFrame>
@@ -567,6 +578,12 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      
+      {/* Demo Video Modal */}
+      <DemoVideoModal 
+        isOpen={isDemoModalOpen} 
+        onClose={() => setIsDemoModalOpen(false)} 
+      />
     </section>
   );
 }
