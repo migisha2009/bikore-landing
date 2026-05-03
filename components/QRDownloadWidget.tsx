@@ -27,12 +27,11 @@ export default function QRDownloadWidget() {
     return () => observer.disconnect()
   }, [])
 
-  // Don't render on mobile or when in download section
-  if (typeof window !== 'undefined' && window.innerWidth < 768) return null
-  if (isInDownloadSection) return null
+  // Don't render when in download section (temporarily disabled for debugging)
+  // if (isInDownloadSection) return null
 
   return (
-    <div className="hidden md:block fixed bottom-8 right-8 z-50">
+    <div className="fixed bottom-8 right-8 z-50">
       <AnimatePresence>
         {isExpanded ? (
           // Expanded State
