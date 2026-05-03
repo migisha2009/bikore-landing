@@ -4,8 +4,67 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const screenVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 100,
+      damping: 15,
+      duration: 0.6
+    }
+  }
+};
+
+const phoneVariants = {
+  hidden: { opacity: 0, rotateY: -15, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    rotateY: 0, 
+    scale: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 80,
+      damping: 12,
+      duration: 0.8
+    }
+  },
+  hover: {
+    scale: 1.05,
+    rotateY: 5,
+    transition: {
+      type: "spring" as const,
+      stiffness: 300,
+      damping: 20
+    }
+  }
+};
+
+const textVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 }
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 100,
+      damping: 15,
+      delay: 0.2
+    }
+  }
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.3
+    }
+  }
 };
 
 export default function Screens({ className = "" }: { className?: string }) {
@@ -14,22 +73,22 @@ export default function Screens({ className = "" }: { className?: string }) {
 
   const screens = [
     {
-      title: "Easy Onboarding",
-      description: "Get started in minutes with our simple setup process",
+      title: "Create your Ikimina group",
+      description: "Invite trusted members and build your Ikimina circle.",
       image: "/screens/onboarding1.png",
-      alt: "Bikore app onboarding screen"
+      alt: "Bikore app create group screen"
     },
     {
-      title: "Create Groups",
-      description: "Invite friends and family to join your savings group",
+      title: "Contribute every cycle",
+      description: "Everyone contributes a fixed amount each cycle into the common pot.",
       image: "/screens/onboarding2.png", 
-      alt: "Bikore app group creation screen"
+      alt: "Bikore app contribution screen"
     },
     {
-      title: "Track Savings",
-      description: "Monitor contributions and watch your savings grow together",
+      title: "Receive your payout",
+      description: "When it's your turn, receive the pot and achieve your goals.",
       image: "/screens/group-pool.png",
-      alt: "Bikore app group savings screen"
+      alt: "Bikore app payout screen"
     }
   ];
 
@@ -38,34 +97,58 @@ export default function Screens({ className = "" }: { className?: string }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ 
+            type: "spring" as const,
+            stiffness: 100,
+            damping: 15,
+            duration: 0.8 
+          }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
+          <motion.h2 
+            className="font-serif text-4xl md:text-5xl font-bold text-white mb-4"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring" as const, stiffness: 400 }}
+          >
             See Bikore in Action
-          </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-lg text-white/80 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            whileHover={{ scale: 1.02 }}
+          >
             Experience the simplicity of digital group savings through our intuitive mobile app
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Screens Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
           {screens.map((screen, index) => (
             <motion.div
               key={index}
               variants={screenVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="text-center"
+              className="text-center group"
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring" as const, stiffness: 300, damping: 20 }}
             >
               {/* Phone Frame */}
-              <div className="relative mx-auto mb-6" style={{ width: '200px', height: '400px' }}>
+              <motion.div 
+                className="relative mx-auto mb-6" 
+                style={{ width: '200px', height: '400px' }}
+                variants={phoneVariants}
+                whileHover="hover"
+              >
                 <div 
-                  className="absolute bg-[#1C1C1E] border-[2px] border-[#3A3A3C] overflow-hidden rounded-[40px]"
+                  className="absolute bg-[#1C1C1E] border-[2px] border-[#3A3A3C] overflow-hidden rounded-[40px] transition-shadow duration-300 group-hover:shadow-2xl"
                   style={{
                     width: '200px',
                     height: '400px',
@@ -73,7 +156,7 @@ export default function Screens({ className = "" }: { className?: string }) {
                   }}
                 >
                   {/* Notch */}
-                  <div 
+                  <motion.div 
                     className="absolute bg-[#1C1C1E] z-10"
                     style={{
                       top: '10px',
@@ -83,10 +166,13 @@ export default function Screens({ className = "" }: { className?: string }) {
                       height: '4px',
                       borderRadius: '2px'
                     }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 + index * 0.2 }}
                   />
                   
                   {/* Screen Content */}
-                  <div 
+                  <motion.div 
                     className="absolute bg-white overflow-hidden rounded-[38px]"
                     style={{
                       top: '2px',
@@ -94,32 +180,46 @@ export default function Screens({ className = "" }: { className?: string }) {
                       right: '2px',
                       bottom: '2px'
                     }}
+                    initial={{ scale: 0.95 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.3 + index * 0.2, duration: 0.5 }}
                   >
-                    <img 
+                    <motion.img 
                       src={screen.image} 
                       alt={screen.alt}
                       className="w-full h-full object-cover"
+                      initial={{ scale: 1.1, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: 0.4 + index * 0.2, duration: 0.8 }}
+                      whileHover={{ scale: 1.05 }}
                     />
-                  </div>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Screen Info */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
+                variants={textVariants}
+                className="space-y-2"
               >
-                <h3 className="text-xl font-bold text-white mb-2">
+                <motion.h3 
+                  className="text-xl font-bold text-white mb-2"
+                  whileHover={{ scale: 1.05, color: '#10b981' }}
+                  transition={{ type: "spring" as const, stiffness: 400 }}
+                >
                   {screen.title}
-                </h3>
-                <p className="text-white/70 text-sm leading-relaxed">
+                </motion.h3>
+                <motion.p 
+                  className="text-white/70 text-sm leading-relaxed"
+                  whileHover={{ color: 'rgba(255, 255, 255, 0.9)' }}
+                  transition={{ duration: 0.2 }}
+                >
                   {screen.description}
-                </p>
+                </motion.p>
               </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
