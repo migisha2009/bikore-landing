@@ -9,6 +9,7 @@ import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import QRDownloadWidget from "@/components/QRDownloadWidget";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -87,6 +88,9 @@ export default function Home() {
       <CTA className="border-t border-[rgba(255,255,255,0.08)]" />
       
       <Footer className="border-t border-[rgba(255,255,255,0.08)]" />
+
+      {/* QR Download Widget */}
+      <QRDownloadWidget />
 
       {/* Mobile Sticky Button */}
       {showStickyButton && !hasPassedCTA && (
