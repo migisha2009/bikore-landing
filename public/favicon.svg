@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+     viewBox="0 0 32 32">
+  
+  <!-- Dark green background square -->
+  <rect width="32" height="32" rx="8" 
+        fill="#1A4D2E"/>
+  
+  <!-- Leaf shape -->
+  <path d="M16 6 
+           C16 6, 24 10, 24 18 
+           C24 22, 20 26, 16 26 
+           C16 26, 16 18, 10 14 
+           C13 10, 16 6, 16 6Z" 
+        fill="#5BAD5B"/>
+  
+  <!-- Stem -->
+  <path d="M16 26 C16 26, 14 20, 11 16" 
+        stroke="#B8E08D" 
+        stroke-width="1.5" 
+        stroke-linecap="round"
+        fill="none"/>
+
+</svg>
