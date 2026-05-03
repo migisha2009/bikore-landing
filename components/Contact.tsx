@@ -248,7 +248,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Amina Uwimana"
-                        // required
+                        required
                         className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none"
                         style={{
                           background: 'rgba(255,255,255,0.06)',
@@ -280,7 +280,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="+250 7XX XXX XXX"
-                        // required
+                        required
                         className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none"
                         style={{
                           background: 'rgba(255,255,255,0.06)',
@@ -343,7 +343,7 @@ export default function Contact() {
                         onChange={handleInputChange}
                         placeholder="I have a question about..."
                         rows={4}
-                        // required
+                        required
                         className="w-full px-4 py-3 rounded-xl text-sm transition-all duration-200 outline-none resize-none"
                         style={{
                           background: 'rgba(255,255,255,0.06)',
@@ -362,22 +362,31 @@ export default function Contact() {
                     </div>
 
                     {/* Submit Button */}
-                    <motion.button
+                    <button
                       type="submit"
-                      whileHover={{ 
-                        background: '#4A9A4A', 
-                        transform: 'scale(1.01)' 
-                      }}
-                      whileTap={{ scale: 0.99 }}
-                      className="w-full py-3.5 rounded-xl font-semibold text-base transition-all duration-200"
+                      className="w-full py-3.5 rounded-xl font-semibold text-base transition-all duration-200 cursor-pointer"
                       style={{
                         background: '#5BAD5B',
                         color: 'white',
                         border: 'none'
                       }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = '#4A9A4A'
+                        e.currentTarget.style.transform = 'scale(1.01)'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = '#5BAD5B'
+                        e.currentTarget.style.transform = 'scale(1)'
+                      }}
+                      onMouseDown={(e) => {
+                        e.currentTarget.style.transform = 'scale(0.99)'
+                      }}
+                      onMouseUp={(e) => {
+                        e.currentTarget.style.transform = 'scale(1.01)'
+                      }}
                     >
                       Send message →
-                    </motion.button>
+                    </button>
                   </form>
                 </>
               ) : (
