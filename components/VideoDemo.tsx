@@ -81,10 +81,10 @@ export default function VideoDemo() {
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-6 shadow-2xl"
+                      className="w-24 h-24 bg-white bg-opacity-90 rounded-full flex items-center justify-center mb-6 shadow-2xl border-4 border-green-500"
                     >
                       <svg 
-                        className="w-8 h-8 text-green-600 ml-1" 
+                        className="w-10 h-10 text-green-600 ml-1" 
                         fill="currentColor" 
                         viewBox="0 0 24 24"
                       >
@@ -96,9 +96,16 @@ export default function VideoDemo() {
                     <h3 className="text-white text-2xl font-bold mb-2">
                       Complete Bikore Demo
                     </h3>
-                    <p className="text-gray-300 text-sm">
+                    <p className="text-gray-300 text-sm mb-4">
                       2 minutes • Full Ikimina Experience
                     </p>
+                    
+                    {/* Click Instruction */}
+                    <div className="bg-black bg-opacity-50 px-4 py-2 rounded-lg">
+                      <p className="text-white text-sm font-medium">
+                        Click to play video
+                      </p>
+                    </div>
                   </div>
                 </div>
 
