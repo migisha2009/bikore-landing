@@ -87,7 +87,7 @@ export default function Screens({ className = "" }: { className?: string }) {
     {
       title: "Receive your payout",
       description: "When it's your turn, receive the pot and achieve your goals.",
-      image: "/screens/group-pool.png",
+      image: "/screens/splash.png",
       alt: "Bikore app payout screen"
     }
   ];
