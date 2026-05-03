@@ -14,6 +14,7 @@ export default function Navbar() {
     { key: "nav.howItWorks", href: "how-it-works" },
     { key: "nav.features", href: "features" },
     { key: "nav.stories", href: "stories" },
+    { key: "nav.demo", href: "demo" },
     { key: "nav.download", href: "download" },
     { key: "nav.contact", href: "contact" }
   ];

@@ -17,6 +17,7 @@ const translations: Translations = {
   'nav.howItWorks': { en: 'How it works', kin: 'Ibikorwa byose' },
   'nav.features': { en: 'Features', kin: 'Ibirango' },
   'nav.stories': { en: 'Stories', kin: 'Inkuru' },
+  'nav.demo': { en: 'Demo', kin: 'Irebe' },
   'nav.download': { en: 'Download', kin: 'Ikarura' },
   'nav.contact': { en: 'Contact', kin: 'Twandikire' },
   'nav.getApp': { en: 'Get the app', kin: 'Funga app' },
