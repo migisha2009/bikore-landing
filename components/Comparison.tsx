@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 interface ComparisonRow {
   feature: string
@@ -91,10 +91,24 @@ export default function Comparison() {
   return (
     <section 
       id="comparison" 
-      className="py-20"
-      style={{ background: '#0A2416', padding: '100px 80px' }}
+      className="py-20 relative"
+      style={{ background: '#0D2B1A', padding: '100px 80px' }}
       ref={ref}
     >
+      {/* Radial Glow Effect */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '800px',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(45,122,58,0.15) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+      />
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -106,10 +120,10 @@ export default function Comparison() {
         >
           {/* Section Label */}
           <div 
-            className="flex items-center gap-2 mb-2"
+            className="flex items-center gap-2 mb-3"
             style={{ 
               color: '#5BAD5B',
-              fontSize: '13px',
+              fontSize: '14px',
               fontWeight: 600,
               letterSpacing: '0.12em',
               textTransform: 'uppercase'
@@ -127,10 +141,12 @@ export default function Comparison() {
 
           {/* Headline */}
           <h2 
-            className="font-serif text-5xl font-black leading-tight mb-3"
+            className="font-serif font-black leading-tight"
             style={{ 
               fontFamily: 'Playfair Display',
-              marginTop: '8px'
+              fontSize: '64px',
+              marginTop: '8px',
+              marginBottom: '12px'
             }}
           >
             Why switch to <span className="italic" style={{ color: '#F5C518' }}>Bikore</span>?
@@ -138,14 +154,13 @@ export default function Comparison() {
 
           {/* Subtext */}
           <p 
-            className="text-lg"
             style={{ 
-              color: 'rgba(255,255,255,0.6)',
+              color: 'rgba(255,255,255,0.65)',
               fontFamily: 'Inter, sans-serif',
-              fontSize: '17px',
+              fontSize: '18px',
               maxWidth: '520px',
-              marginTop: '12px',
-              marginBottom: '56px'
+              marginTop: '0',
+              marginBottom: '64px'
             }}
           >
             The Ikimina tradition is beautiful. Bikore just makes it safer, smarter and stress-free.
@@ -154,177 +169,266 @@ export default function Comparison() {
 
         {/* Comparison Table - Desktop */}
         <div className="hidden md:block">
-          <div 
-            className="rounded-2xl overflow-hidden"
+          {/* Table Wrapper */}
+          <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1.1fr 1.1fr',
-              gap: '0'
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              borderRadius: '28px',
+              overflow: 'hidden',
+              boxShadow: '0 32px 80px rgba(0,0,0,0.4)',
+              position: 'relative',
+              zIndex: 1
             }}
           >
-            {/* Header Row */}
-            <div style={{ background: 'rgba(255,255,255,0.03)', padding: '20px 24px' }}>
-              <div 
-                style={{ 
-                  color: 'rgba(255,255,255,0.3)', 
-                  fontSize: '12px', 
-                  letterSpacing: '0.1em' 
-                }}
-              >
-                Compare
+            <div 
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1.1fr 1.1fr',
+                gap: '0'
+              }}
+            >
+              {/* Header Row */}
+              <div style={{ 
+                background: 'rgba(255,255,255,0.02)', 
+                borderRight: '1px solid rgba(255,255,255,0.08)',
+                padding: '32px 28px',
+                minHeight: '140px',
+                display: 'flex',
+                alignItems: 'center'
+              }}>
+                <div 
+                  style={{ 
+                    color: 'rgba(255,255,255,0.25)', 
+                    fontSize: '11px', 
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    fontWeight: 600
+                  }}
+                >
+                  Compare
+                </div>
               </div>
-            </div>
-            
-            <div style={{ 
-              background: 'rgba(255,255,255,0.05)', 
-              borderBottom: '2px solid rgba(255,255,255,0.1)',
-              padding: '24px 32px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '8px'
-            }}>
-              <div style={{ fontSize: '32px' }}>🏺</div>
-              <h3 style={{ 
-                color: 'white', 
-                fontFamily: 'Playfair Display', 
-                fontSize: '20px', 
-                fontWeight: 700 
+              
+              <div style={{ 
+                background: 'rgba(255,255,255,0.04)', 
+                borderRight: '1px solid rgba(255,255,255,0.08)',
+                borderBottom: '2px solid rgba(255,255,255,0.12)',
+                padding: '32px 40px',
+                minHeight: '140px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '12px'
               }}>
-                Traditional Ikimina
-              </h3>
-              <p style={{ 
-                color: 'rgba(255,255,255,0.4)', 
-                fontFamily: 'Inter', 
-                fontSize: '13px' 
-              }}>
-                The old way
-              </p>
-            </div>
-            
-            <div style={{ 
-              background: '#1A4D2E', 
-              borderBottom: '2px solid #5BAD5B',
-              padding: '24px 32px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '8px',
-              position: 'relative'
-            }}>
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '-1px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  background: '#F5C518',
-                  color: '#0A2416',
-                  fontSize: '10px',
+                <div style={{ fontSize: '40px' }}>🏺</div>
+                <h3 style={{ 
+                  color: 'white', 
+                  fontFamily: 'Playfair Display', 
+                  fontSize: '24px', 
                   fontWeight: 700,
-                  letterSpacing: '0.08em',
-                  padding: '4px 14px',
-                  borderRadius: '0 0 10px 10px',
-                  textTransform: 'uppercase'
-                }}
-              >
-                RECOMMENDED
+                  marginBottom: '6px',
+                  textAlign: 'center'
+                }}>
+                  Traditional Ikimina
+                </h3>
+                <p style={{ 
+                  color: 'rgba(255,255,255,0.4)', 
+                  fontFamily: 'Inter', 
+                  fontSize: '14px',
+                  margin: 0
+                }}>
+                  The old way
+                </p>
               </div>
-              <div style={{ fontSize: '32px' }}>🌱</div>
-              <h3 style={{ 
-                color: 'white', 
-                fontFamily: 'Playfair Display', 
-                fontSize: '20px', 
-                fontWeight: 700 
+              
+              <div style={{ 
+                background: 'linear-gradient(135deg, #1E5C35 0%, #1A4D2E 100%)', 
+                borderBottom: '2px solid #5BAD5B',
+                padding: '32px 40px',
+                minHeight: '140px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '12px',
+                position: 'relative'
               }}>
-                Bikore
-              </h3>
-              <p style={{ 
-                color: '#B8E08D', 
-                fontFamily: 'Inter', 
-                fontSize: '13px' 
-              }}>
-                The smart way
-              </p>
-            </div>
+                {/* RECOMMENDED Badge */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '0',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: '#F5C518',
+                    color: '#0A2416',
+                    fontSize: '11px',
+                    fontWeight: 800,
+                    letterSpacing: '0.1em',
+                    padding: '5px 18px',
+                    borderRadius: '0 0 12px 12px',
+                    textTransform: 'uppercase',
+                    boxShadow: '0 4px 12px rgba(245,197,24,0.3)',
+                    zIndex: 2
+                  }}
+                >
+                  RECOMMENDED
+                </div>
+                <div style={{ fontSize: '40px', marginTop: '16px' }}>🌱</div>
+                <h3 style={{ 
+                  color: 'white', 
+                  fontFamily: 'Playfair Display', 
+                  fontSize: '28px', 
+                  fontWeight: 800,
+                  marginBottom: '6px',
+                  textAlign: 'center'
+                }}>
+                  Bikore
+                </h3>
+                <p style={{ 
+                  color: '#B8E08D', 
+                  fontFamily: 'Inter', 
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  margin: 0
+                }}>
+                  The smart way
+                </p>
+              </div>
 
             {/* Comparison Rows */}
-            {comparisonData.map((row, index) => (
-              <motion.div
-                key={index}
-                initial={{ x: -20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.4, 
-                  delay: index * 0.07,
-                  ease: 'easeOut'
-                }}
-                style={{
-                  display: 'contents'
-                }}
-              >
-                {/* Feature Label */}
-                <div style={{
-                  background: index % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent',
-                  borderRight: '1px solid rgba(255,255,255,0.06)',
-                  padding: '18px 24px',
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  color: 'rgba(255,255,255,0.7)',
-                  display: 'flex',
-                  alignItems: 'center'
-                }}>
-                  {row.feature}
-                </div>
-
-                {/* Traditional Value */}
-                <div style={{
-                  background: index % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent',
-                  borderRight: '1px solid rgba(255,255,255,0.06)',
-                  padding: '18px 32px',
-                  fontSize: '14px',
-                  color: 'rgba(255,255,255,0.55)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  ...(index === comparisonData.length - 1 && { borderRadius: '0 0 0 24px' })
-                }}>
-                  <span>{row.traditionalIcon}</span>
-                  <span>{row.traditional}</span>
-                </div>
-
-                {/* Bikore Value */}
-                <div style={{
-                  background: 'rgba(26,77,46,0.4)',
-                  borderLeft: '1px solid rgba(91,173,91,0.15)',
-                  padding: '18px 32px',
-                  fontSize: '14px',
-                  color: 'white',
-                  fontWeight: 500,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  transition: 'background 0.15s',
-                  ...(index === comparisonData.length - 1 && { borderRadius: '0 0 24px 0' })
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(26,77,46,0.7)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(26,77,46,0.4)'
-                }}
+            {comparisonData.map((row, index) => {
+              const [isHovered, setIsHovered] = useState(false)
+              
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: index * 0.07,
+                    ease: 'easeOut'
+                  }}
+                  style={{
+                    display: 'contents'
+                  }}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
                 >
-                  <span>{row.bikoreIcon}</span>
-                  <span>{row.bikore}</span>
-                </div>
-              </motion.div>
-            ))}
+                  {/* Feature Label */}
+                  <div 
+                    style={{
+                      background: isHovered ? 'rgba(255,255,255,0.05)' : (index % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'transparent'),
+                      borderRight: '1px solid rgba(255,255,255,0.07)',
+                      padding: '20px 28px',
+                      minHeight: '64px',
+                      fontSize: '15px',
+                      fontWeight: 500,
+                      color: 'rgba(255,255,255,0.85)',
+                      fontFamily: 'Inter',
+                      display: 'flex',
+                      alignItems: 'center',
+                      transition: 'background 0.15s',
+                      ...(index === comparisonData.length - 1 && { borderRadius: '0 0 0 28px' })
+                    }}
+                  >
+                    {row.feature}
+                  </div>
+
+                  {/* Traditional Value */}
+                  <div 
+                    style={{
+                      background: isHovered ? 'rgba(255,255,255,0.05)' : (index % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'transparent'),
+                      borderRight: '1px solid rgba(255,255,255,0.07)',
+                      padding: '20px 32px',
+                      minHeight: '64px',
+                      fontSize: '14px',
+                      color: 'rgba(255,255,255,0.5)',
+                      fontFamily: 'Inter',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
+                      transition: 'background 0.15s'
+                    }}
+                  >
+                    {row.traditionalIcon === "❌" && (
+                      <span style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '20px',
+                        height: '20px',
+                        borderRadius: '50%',
+                        background: 'rgba(239,68,68,0.15)',
+                        color: '#EF4444',
+                        fontSize: '12px',
+                        fontWeight: '700',
+                        flexShrink: 0
+                      }}>✕</span>
+                    )}
+                    {row.traditionalIcon === "⚠️" && (
+                      <span style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center', 
+                        width: '20px', 
+                        height: '20px',
+                        borderRadius: '50%',
+                        background: 'rgba(245,158,11,0.15)',
+                        color: '#F59E0B',
+                        fontSize: '12px',
+                        flexShrink: 0
+                      }}>⚠</span>
+                    )}
+                    <span>{row.traditional}</span>
+                  </div>
+
+                  {/* Bikore Value */}
+                  <div 
+                    style={{
+                      background: isHovered ? 'rgba(26,77,46,0.5)' : 'rgba(26,77,46,0.35)',
+                      borderLeft: '2px solid rgba(91,173,91,0.2)',
+                      padding: '20px 32px',
+                      minHeight: '64px',
+                      fontSize: '14px',
+                      color: 'white',
+                      fontWeight: 500,
+                      fontFamily: 'Inter',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
+                      transition: 'background 0.15s',
+                      ...(index === comparisonData.length - 1 && { borderRadius: '0 0 28px 0' })
+                    }}
+                  >
+                    <span style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '20px',
+                      height: '20px',
+                      borderRadius: '50%',
+                      background: 'rgba(91,173,91,0.25)',
+                      color: '#5BAD5B',
+                      fontSize: '13px',
+                      fontWeight: '700',
+                      flexShrink: 0
+                    }}>✓</span>
+                    <span>{row.bikore}</span>
+                  </div>
+                </motion.div>
+              )
+            })}
+            </div>
           </div>
         </div>
 
         {/* Mobile Layout */}
-        <div className="md:hidden space-y-3">
+        <div className="md:hidden">
           {comparisonData.map((row, index) => (
             <motion.div
               key={index}
@@ -336,26 +440,99 @@ export default function Comparison() {
                 delay: index * 0.05,
                 ease: 'easeOut'
               }}
-              className="bg-white bg-opacity-5 rounded-2xl p-4"
+              style={{
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '16px',
+                padding: '18px 20px',
+                marginBottom: '10px'
+              }}
             >
-              <h4 className="text-white font-semibold text-sm mb-3">{row.feature}</h4>
+              <h4 style={{ 
+                color: 'white', 
+                fontWeight: 600, 
+                fontSize: '15px',
+                marginBottom: '10px'
+              }}>
+                {row.feature}
+              </h4>
               
-              <div className="space-y-2">
-                <div className="flex items-start gap-2">
-                  <span className="text-yellow-500 text-sm">🏺</span>
-                  <div>
-                    <span className="text-yellow-500 text-xs font-medium">Old way:</span>
-                    <p className="text-white text-opacity-50 text-sm">{row.traditional}</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-2">
-                  <span className="text-green-400 text-sm">🌱</span>
-                  <div>
-                    <span className="text-green-400 text-xs font-medium">Bikore:</span>
-                    <p className="text-white text-sm">{row.bikore}</p>
-                  </div>
-                </div>
+              {/* Old way row */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}>
+                {row.traditionalIcon === "❌" && (
+                  <span style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '20px',
+                    height: '20px',
+                    borderRadius: '50%',
+                    background: 'rgba(239,68,68,0.15)',
+                    color: '#EF4444',
+                    fontSize: '12px',
+                    fontWeight: '700',
+                    flexShrink: 0
+                  }}>✕</span>
+                )}
+                {row.traditionalIcon === "⚠️" && (
+                  <span style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center', 
+                    width: '20px', 
+                    height: '20px',
+                    borderRadius: '50%',
+                    background: 'rgba(245,158,11,0.15)',
+                    color: '#F59E0B',
+                    fontSize: '12px',
+                    flexShrink: 0
+                  }}>⚠</span>
+                )}
+                <span style={{
+                  color: 'rgba(255,255,255,0.45)',
+                  fontSize: '13px'
+                }}>
+                  {row.traditional}
+                </span>
+              </div>
+              
+              {/* Divider */}
+              <div style={{
+                borderTop: '1px solid rgba(255,255,255,0.06)',
+                margin: '10px 0'
+              }} />
+              
+              {/* Bikore row */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                marginTop: '6px'
+              }}>
+                <span style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '20px',
+                  height: '20px',
+                  borderRadius: '50%',
+                  background: 'rgba(91,173,91,0.25)',
+                  color: '#5BAD5B',
+                  fontSize: '13px',
+                  fontWeight: '700',
+                  flexShrink: 0
+                }}>✓</span>
+                <span style={{
+                  color: 'white',
+                  fontSize: '13px',
+                  fontWeight: 500
+                }}>
+                  {row.bikore}
+                </span>
               </div>
             </motion.div>
           ))}
@@ -367,42 +544,65 @@ export default function Comparison() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-12"
+          className="text-center"
+          style={{ marginTop: '56px' }}
         >
           <h3 
-            className="font-serif text-3xl font-bold mb-5"
+            className="font-serif font-bold mb-2"
             style={{ 
               fontFamily: 'Playfair Display',
-              color: 'white'
+              fontSize: '36px',
+              fontWeight: 800,
+              color: 'white',
+              marginBottom: '8px'
             }}
           >
             Ready to upgrade your Ikimina?
           </h3>
           
+          <p 
+            style={{ 
+              color: 'rgba(255,255,255,0.5)', 
+              fontSize: '15px',
+              marginBottom: '28px'
+            }}
+          >
+            Join 12,000+ Rwandans who already made the switch
+          </p>
+          
           <motion.button
-            whileHover={{ scale: 1.03, background: '#4A9A4A' }}
+            whileHover={{ 
+              scale: 1.03, 
+              background: 'linear-gradient(135deg, #4A9A4A, #3D8A3D)',
+              transform: 'translateY(-2px)',
+              boxShadow: '0 12px 40px rgba(91,173,91,0.5)'
+            }}
             whileTap={{ scale: 0.98 }}
-            className="mb-3"
             style={{
-              background: '#5BAD5B',
+              background: 'linear-gradient(135deg, #5BAD5B, #4A9A4A)',
               color: 'white',
               border: 'none',
               borderRadius: '999px',
-              padding: '16px 36px',
-              fontSize: '16px',
-              fontWeight: 600,
+              padding: '18px 44px',
+              fontSize: '17px',
+              fontWeight: 700,
               cursor: 'pointer',
-              transition: 'all 0.2s'
+              boxShadow: '0 8px 32px rgba(91,173,91,0.35)',
+              transition: 'all 0.25s ease',
+              marginBottom: '14px'
             }}
           >
             🌱 Start saving free with Bikore
           </motion.button>
           
           <p 
-            className="text-sm"
-            style={{ color: 'rgba(255,255,255,0.35)' }}
+            style={{ 
+              color: 'rgba(255,255,255,0.3)', 
+              fontSize: '13px',
+              letterSpacing: '0.03em'
+            }}
           >
-            No credit card · Free to download · Works with MTN MoMo & Airtel
+            Free to download · MTN MoMo & Airtel · No credit card
           </p>
         </motion.div>
       </div>
