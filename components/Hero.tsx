@@ -570,7 +570,6 @@ export default function Hero() {
                       <div style={{ fontSize: '10px', opacity: 0.8, marginBottom: '4px' }}>Aug 1</div>
                       <div style={{ fontSize: '12px', fontWeight: 'bold' }}>YOUR TURN</div>
                     </div>
-                    </div>
                   </div>
                 </div>
               </PhoneFrame>
