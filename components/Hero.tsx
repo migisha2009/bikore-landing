@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Phone Frame Component - Exact specifications from reference
 function PhoneFrame({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -48,6 +49,7 @@ function PhoneFrame({ children, className = "" }: { children: React.ReactNode; c
 
 export default function Hero() {
   const [isHovered, setIsHovered] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <section 
@@ -109,9 +111,8 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.1 }}
             >
               <h1 className="font-serif text-white leading-tight" style={{ fontFamily: 'Playfair Display, serif', fontWeight: 900, lineHeight: '1.05', marginBottom: '24px' }}>
-                <span className="block" style={{ fontSize: '76px' }}>Together,</span>
-                <span className="block" style={{ fontSize: '76px' }}>we <em style={{ color: '#F5C518', fontStyle: 'italic', fontFamily: 'cursive' }}>save</em></span>
-                <span className="block" style={{ fontSize: '76px' }}>& grow.</span>
+                <span className="block" style={{ fontSize: '76px' }}>{t('hero.title').split('.')[0]}</span>
+                <span className="block" style={{ fontSize: '76px' }}>{t('hero.title').split('.')[1]}</span>
               </h1>
             </motion.div>
 
@@ -130,8 +131,7 @@ export default function Hero() {
                   maxWidth: '480px'
                 }}
               >
-                Bikore brings Rwanda's trusted Ikimina tradition into your smartphone. 
-                Save together, contribute easily, receive your payout on time — every cycle.
+                {t('hero.subtitle')}
               </p>
             </motion.div>
 
@@ -156,7 +156,7 @@ export default function Hero() {
                   border: 'none'
                 }}
               >
-                🌱 Start saving free
+                🌱 {t('hero.cta')}
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.03, backgroundColor: "rgba(255,255,255,0.1)" }}

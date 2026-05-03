@@ -2,17 +2,20 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageToggle from "@/components/LanguageToggle";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navLinks = [
-    "Screens",
-    "How it works", 
-    "Features",
-    "Stories",
-    "Download",
-    "Contact"
+    { key: "nav.screens", href: "screens" },
+    { key: "nav.howItWorks", href: "how-it-works" },
+    { key: "nav.features", href: "features" },
+    { key: "nav.stories", href: "stories" },
+    { key: "nav.download", href: "download" },
+    { key: "nav.contact", href: "contact" }
   ];
 
   return (
@@ -34,17 +37,18 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link, index) => (
-              <span key={link}>
+              <span key={link.key}>
                 <a
-                  href={`#${link.toLowerCase().replace(" ", "-")}`}
+                  href={`#${link.href}`}
                   className="text-[#1A1A1A] text-[15px] hover:text-[#1A3D2B] transition-colors duration-200"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
-                  {link}
+                  {t(link.key)}
                 </a>
                 {index < navLinks.length - 1 && <span className="text-[#1A1A1A] mx-2">·</span>}
               </span>
             ))}
+            <LanguageToggle />
             <motion.a
               href="#download"
               whileHover={{ scale: 1.03 }}
@@ -92,15 +96,18 @@ export default function Navbar() {
               <div className="py-4 space-y-2">
                 {navLinks.map((link) => (
                   <a
-                    key={link}
-                    href={`#${link.toLowerCase().replace(" ", "-")}`}
+                    key={link.key}
+                    href={`#${link.href}`}
                     className="block py-2 text-[#1A1A1A] hover:text-[#1A3D2B] transition-colors duration-200"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {link}
+                    {t(link.key)}
                   </a>
                 ))}
+                <div className="flex justify-center my-4">
+                  <LanguageToggle />
+                </div>
                 <motion.a
                   href="#download"
                   whileHover={{ scale: 1.03 }}
@@ -116,7 +123,7 @@ export default function Navbar() {
                   }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Get the app
+                  {t('nav.getApp')}
                 </motion.a>
               </div>
             </motion.div>

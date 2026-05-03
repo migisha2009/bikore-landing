@@ -11,6 +11,7 @@ import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import QRDownloadWidget from "@/components/QRDownloadWidget";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -59,7 +60,8 @@ export default function Home() {
     { initial: { y: 100, opacity: 0 }, animate: { y: 0, opacity: 1 }, exit: { y: 100, opacity: 0 } };
 
   return (
-    <div className="min-h-screen bg-primary-dark">
+    <LanguageProvider>
+      <div className="min-h-screen bg-primary-dark">
       {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-primary/20 z-50"
@@ -108,6 +110,7 @@ export default function Home() {
           Start saving
         </motion.button>
       )}
-    </div>
+      </div>
+    </LanguageProvider>
   );
 }

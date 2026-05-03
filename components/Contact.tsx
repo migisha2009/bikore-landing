@@ -2,10 +2,12 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Contact() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -89,7 +91,7 @@ export default function Contact() {
                 className="text-xs font-semibold tracking-wider uppercase mb-4"
                 style={{ color: '#5BAD5B', letterSpacing: '0.1em' }}
               >
-                CONTACT
+                {t('contact.label')}
               </p>
             </motion.div>
 
@@ -104,10 +106,10 @@ export default function Contact() {
                 className="font-serif text-5xl md:text-6xl font-black text-white leading-tight mb-6"
                 style={{ fontFamily: 'Playfair Display' }}
               >
-                Have questions?<br />
-                We're here{' '}
+                {t('contact.heading')}<br />
+                {t('contact.headingHighlight')}{' '}
                 <span className="italic" style={{ color: '#F5C518' }}>
-                  to help.
+                  {t('contact.headingEnd')}
                 </span>
               </h1>
             </motion.div>
@@ -124,9 +126,7 @@ export default function Contact() {
                 fontFamily: 'Inter, sans-serif'
               }}
             >
-              Whether you're starting your first Ikimina group
-              or need help with your account — reach out.
-              Our team speaks Kinyarwanda and English.
+              {t('contact.subtitle')}
             </motion.p>
 
             {/* Contact Cards */}

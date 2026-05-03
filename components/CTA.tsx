@@ -2,10 +2,12 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function CTA({ className = "" }: { className?: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
 
   return (
     <section 
@@ -27,16 +29,16 @@ export default function CTA({ className = "" }: { className?: string }) {
           className="mb-8"
         >
           <h1 className="font-serif text-5xl md:text-7xl font-black text-white leading-tight text-center">
-            <div>Start your</div>
+            <div>{t('cta.headline')}</div>
             <motion.div 
               className="text-gold italic"
               initial={{ scale: 0.95 }}
               whileInView={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              savings circle
+              {t('cta.headlineHighlight')}
             </motion.div>
-            <div>today</div>
+            <div>{t('cta.headlineEnd')}</div>
           </h1>
         </motion.div>
 
@@ -50,8 +52,7 @@ export default function CTA({ className = "" }: { className?: string }) {
           <p className="font-sans text-lg text-center max-w-md mx-auto"
              style={{ color: 'rgba(255,255,255,0.65)' }}
           >
-            Join thousands of Rwandans already saving smarter. 
-            Free to download, free to start.
+            {t('cta.subtitle')}
           </p>
         </motion.div>
 
@@ -95,10 +96,10 @@ export default function CTA({ className = "" }: { className?: string }) {
                   letterSpacing: '0.08em'
                 }}
               >
-                DOWNLOAD ON THE
+                {t('cta.downloadAppStore')}
               </div>
               <div className="text-xl font-bold text-white">
-                App Store
+                {t('cta.appStore')}
               </div>
             </div>
           </motion.button>
@@ -145,10 +146,10 @@ export default function CTA({ className = "" }: { className?: string }) {
                   letterSpacing: '0.08em'
                 }}
               >
-                GET IT ON
+                {t('cta.getItOn')}
               </div>
               <div className="text-xl font-bold text-white">
-                Google Play
+                {t('cta.googlePlay')}
               </div>
             </div>
           </motion.button>
