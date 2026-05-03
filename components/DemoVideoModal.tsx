@@ -13,8 +13,8 @@ export default function DemoVideoModal({ isOpen, onClose }: DemoVideoModalProps)
   const { t } = useLanguage()
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
 
-  // Replace with your actual 4-minute video URL
-  const videoUrl = "https://your-video-url.com/bikore-demo.mp4"
+  // YouTube video URL for Bikore demo
+  const videoUrl = "https://www.youtube.com/embed/ZGQ3VsD0KtE"
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
@@ -77,17 +77,16 @@ export default function DemoVideoModal({ isOpen, onClose }: DemoVideoModalProps)
                 </div>
               )}
               
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                controls
-                playsInline
-                onLoadStart={handleVideoLoad}
+              <iframe
+                className="w-full h-full"
+                src={videoUrl}
+                title="Bikore Demo Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                onLoad={handleVideoLoad}
                 style={{ display: isVideoLoaded ? 'block' : 'none' }}
-              >
-                <source src={videoUrl} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              />
 
               {/* Video Overlay Info */}
               <div className="absolute bottom-4 left-4 right-4 bg-black bg-opacity-60 backdrop-blur-sm rounded-lg p-3">
