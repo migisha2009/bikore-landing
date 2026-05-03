@@ -1,99 +1,252 @@
-"use client";
+'use client'
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useEffect, useRef, useState } from 'react'
+import { useInView } from 'framer-motion'
 
-interface AnimatedNumberProps {
-  value: string;
-  duration?: number;
+function CountUp({ 
+  end, 
+  duration = 2000, 
+  prefix = '', 
+  suffix = '',
+  delay = 0
+}: { 
+  end: number
+  duration?: number
+  prefix?: string
+  suffix?: string
+  delay?: number
+}) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+  
+  useEffect(() => {
+    if (!isInView) return
+    
+    const startAnimation = () => {
+      let startTime: number
+      let animationFrame: number
+      
+      const animate = (timestamp: number) => {
+        if (!startTime) startTime = timestamp
+        const progress = timestamp - startTime
+        const percentage = Math.min(progress / duration, 1)
+        
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - percentage, 3)
+        setCount(Math.floor(eased * end))
+        
+        if (percentage < 1) {
+          animationFrame = requestAnimationFrame(animate)
+        }
+      }
+      
+      animationFrame = requestAnimationFrame(animate)
+      return () => cancelAnimationFrame(animationFrame)
+    }
+    
+    const timeoutId = setTimeout(startAnimation, delay)
+    return () => clearTimeout(timeoutId)
+  }, [isInView, end, duration, delay])
+  
+  return (
+    <span ref={ref}>
+      {prefix}{count.toLocaleString()}{suffix}
+    </span>
+  )
 }
 
-function AnimatedNumber({ value, duration = 2000 }: AnimatedNumberProps) {
-  const [displayValue, setDisplayValue] = useState("0");
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
+function DecimalCountUp({ end, suffix, delay = 0 }: { end: number; suffix: string; delay?: number }) {
+  const [count, setCount] = useState('0.0')
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+  
   useEffect(() => {
-    if (inView && !isVisible) {
-      setIsVisible(true);
+    if (!isInView) return
+    
+    const startAnimation = () => {
+      let startTime: number
+      let frame: number
       
-      // Parse the value to get the number part
-      const numericValue = value.replace(/[^0-9]/g, "");
-      const suffix = value.replace(/[0-9]/g, "");
-      const targetNumber = parseInt(numericValue);
-      
-      if (targetNumber > 0) {
-        let currentValue = 0;
-        const increment = targetNumber / (duration / 16); // 60fps
-        const timer = setInterval(() => {
-          currentValue += increment;
-          if (currentValue >= targetNumber) {
-            currentValue = targetNumber;
-            clearInterval(timer);
-          }
-          
-          // Format the number with commas
-          const formattedNumber = Math.floor(currentValue).toLocaleString();
-          setDisplayValue(formattedNumber + suffix);
-        }, 16);
-        
-        return () => clearInterval(timer);
-      } else {
-        setDisplayValue(value);
+      const animate = (timestamp: number) => {
+        if (!startTime) startTime = timestamp
+        const progress = Math.min((timestamp - startTime) / 1600, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        setCount((eased * end).toFixed(1))
+        if (progress < 1) frame = requestAnimationFrame(animate)
       }
+      
+      frame = requestAnimationFrame(animate)
+      return () => cancelAnimationFrame(frame)
     }
-  }, [inView, isVisible, value, duration]);
-
-  return (
-    <span ref={ref}>{displayValue}</span>
-  );
+    
+    const timeoutId = setTimeout(startAnimation, delay)
+    return () => clearTimeout(timeoutId)
+  }, [isInView, end, delay])
+  
+  return <span ref={ref}>{count}{suffix}</span>
 }
 
 export default function Stats({ className = "" }: { className?: string }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const stats = [
-    { number: "12000", suffix: "+", label: "Users" },
-    { number: "2000000000", suffix: "B+", label: "Saved Together" },
-    { number: "98", suffix: "%", label: "On-time Payouts" },
-    { number: "4.9", suffix: "★", label: "App Store Rating" }
-  ];
+    { 
+      end: 12000, 
+      suffix: '+', 
+      label: 'Users',
+      subtext: 'across Rwanda',
+      duration: 2000,
+      delay: 0
+    },
+    { 
+      end: 2, 
+      prefix: 'Rwf ',
+      suffix: 'B+', 
+      label: 'Saved Together',
+      subtext: 'and counting',
+      duration: 1500,
+      delay: 200
+    },
+    { 
+      end: 98, 
+      suffix: '%', 
+      label: 'On-time Payouts',
+      subtext: 'every cycle',
+      duration: 1800,
+      delay: 400
+    },
+    { 
+      end: 4.9, 
+      suffix: '★', 
+      label: 'App Store Rating',
+      subtext: '5,000+ reviews',
+      duration: 1600,
+      delay: 600,
+      isDecimal: true
+    },
+  ]
 
   return (
-    <section id="stats" className={`py-20 bg-section-stats ${className}`} ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 items-center">
+    <section 
+      id="stats" 
+      className={`${className}`}
+      style={{ 
+        background: '#0A2416', 
+        padding: '60px 80px' 
+      }}
+      ref={ref}
+    >
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-4 gap-0 items-center">
           {stats.map((stat, index) => (
-            <div key={index} className="relative">
+            <div key={index} className="relative text-center" style={{ padding: '20px 40px' }}>
               {/* Stat Content */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="text-center"
-              >
-                <div className="font-serif text-4xl md:text-5xl lg:text-[56px] font-black text-white mb-2">
-                  <AnimatedNumber 
-                    value={stat.number} 
-                    duration={2000 + index * 200}
-                  />
-                  <span className="text-4xl md:text-5xl lg:text-[56px]">{stat.suffix}</span>
+              <div>
+                <div 
+                  style={{
+                    fontFamily: 'Playfair Display',
+                    fontSize: '64px',
+                    fontWeight: 900,
+                    color: 'white',
+                    lineHeight: 1,
+                    marginBottom: '12px'
+                  }}
+                >
+                  {stat.isDecimal ? (
+                    <>
+                      <DecimalCountUp 
+                        end={stat.end} 
+                        suffix="" 
+                        delay={stat.delay}
+                      />
+                      <span 
+                        style={{
+                          fontFamily: 'Playfair Display',
+                          fontSize: '64px',
+                          fontWeight: 900,
+                          color: '#F5C518',
+                          lineHeight: 1,
+                          marginLeft: '-8px'
+                        }}
+                      >
+                        ★
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <CountUp 
+                        end={stat.end} 
+                        duration={stat.duration}
+                        prefix={stat.prefix}
+                        suffix=""
+                        delay={stat.delay}
+                      />
+                      {stat.suffix === 'B+' ? (
+                        <span 
+                          style={{
+                            fontFamily: 'Playfair Display',
+                            fontSize: '64px',
+                            fontWeight: 900,
+                            color: '#B8E08D',
+                            lineHeight: 1,
+                            marginLeft: '-8px'
+                          }}
+                        >
+                          B+
+                        </span>
+                      ) : (
+                        <span 
+                          style={{
+                            fontFamily: 'Playfair Display',
+                            fontSize: '64px',
+                            fontWeight: 900,
+                            color: 'white',
+                            lineHeight: 1,
+                            marginLeft: '-8px'
+                          }}
+                        >
+                          {stat.suffix}
+                        </span>
+                      )}
+                    </>
+                  )}
                 </div>
-                <div className="font-sans text-base"
-                     style={{ color: '#B8E08D' }}>
+                
+                <div 
+                  style={{
+                    fontFamily: 'Inter',
+                    fontSize: '15px',
+                    fontWeight: 500,
+                    color: '#5BAD5B',
+                    letterSpacing: '0.02em',
+                    marginBottom: '4px'
+                  }}
+                >
                   {stat.label}
                 </div>
-              </motion.div>
+                
+                <div 
+                  style={{
+                    fontSize: '12px',
+                    color: 'rgba(255,255,255,0.3)',
+                    marginTop: '4px'
+                  }}
+                >
+                  {stat.subtext}
+                </div>
+              </div>
 
               {/* Vertical Divider - Not for last item */}
               {index < stats.length - 1 && (
                 <div 
-                  className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-px"
+                  className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2"
                   style={{ 
-                    height: '60px',
-                    background: 'rgba(255,255,255,0.1)'
+                    width: '1px',
+                    background: 'rgba(255,255,255,0.1)',
+                    height: '80px',
+                    alignSelf: 'center'
                   }} 
                 />
               )}
@@ -102,5 +255,5 @@ export default function Stats({ className = "" }: { className?: string }) {
         </div>
       </div>
     </section>
-  );
+  )
 }
