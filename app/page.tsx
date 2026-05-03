@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Screens from "@/components/Screens";
 import Features from "@/components/Features";
+import Comparison from "@/components/Comparison";
 import HowItWorks from "@/components/HowItWorks";
 import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
@@ -81,9 +82,11 @@ export default function Home() {
       
       <Screens className="border-t border-[rgba(255,255,255,0.08)]" />
       
-      <Features className="border-t border-[rgba(255,255,255,0.08)]" />
-      
       <HowItWorks className="border-t border-[rgba(255,255,255,0.08)]" />
+      
+      <Comparison />
+      
+      <Features className="border-t border-[rgba(255,255,255,0.08)]" />
       
       <Stats className="border-t border-[rgba(255,255,255,0.08)]" />
       
